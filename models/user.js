@@ -9,7 +9,7 @@ const userSchema = new Schema({
   address: String,
   location: { type: { type: String}, coordinates: [Number] },
   phone: Number,
-  sector: { type: String, enum: ['Energy', 'Materials', 'Industrials', 'Consumer Discretionary', 'Consumer Staples', 'Health Care', 'Financials', 'Information Technology'] },
+  sector: { type: String, enum: ['Business', 'Cottage Industry', 'Heavy Industry', 'Light Industry', 'Manufacturing'] },
   username: { type: String, require: true, unique: true },
   email: { type: String, require: true, unique: true },
   password: { type: String, require: true },
