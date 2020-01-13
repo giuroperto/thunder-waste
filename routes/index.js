@@ -22,6 +22,6 @@ router.use('/', homeUser);
 
 //Route link to new route home-internal.js
 const homeInternal = require('./home-internal');
-router.use('/', homeInternal);
+router.use('/staff', homeInternal);
 
 module.exports = router;
