@@ -30,6 +30,10 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
   console.log('Error connecting to Mongo DB', error)
 })
 
+// setting up middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 //Views settings
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '/views'));
