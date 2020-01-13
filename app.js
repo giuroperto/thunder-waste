@@ -35,7 +35,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Defining index route
+//Route link to new route index.js
 const index = require('./routes/index');
 app.use('/', index);
 
