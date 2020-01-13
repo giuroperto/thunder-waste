@@ -3,7 +3,12 @@ const router = express.Router();
 
 //GET Home Page
 router.get('/', (req, res, next) => {
-  res.render('layout')
+  res.render('index')
+})
+
+//GET Services Page
+router.get('/services', (req, res, next) => {
+  res.render('services')
 })
 
 //GET Materials Information Page
@@ -16,12 +21,16 @@ router.get('/about', (req, res, next) => {
   res.render('about')
 })
 
-//Route link to new route home-user.js
+//Route link to home-user.js route 
 const homeUser = require('./home-user')
 router.use('/', homeUser);
 
-//Route link to new route home-internal.js
+//Route link to home-internal.js route
 const homeInternal = require('./home-internal');
 router.use('/staff', homeInternal);
+
+//Route link to auth.js route
+const auth = require('./auth');
+router.use('/', auth)
 
 module.exports = router;
