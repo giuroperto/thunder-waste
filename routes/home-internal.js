@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
 
-router.get(('/staff/home'), (req, res, next) => {
+router.get(('/home'), (req, res, next) => {
   res.render('internal-home');
 });
-
-// router.get('/staff/pro')
 
 module.exports = router;
