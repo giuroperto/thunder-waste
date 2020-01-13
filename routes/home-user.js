@@ -16,6 +16,5 @@ router.get('/home/:id', (req, res, next) => {
 })
 
 //GET User's Profile Page
-router.get('/profile/:id')
 
 module.exports = router;
