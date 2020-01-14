@@ -15,7 +15,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   accountType: {type: String, enum: ['client', 'internal', 'admin'], default: 'client'},
   bookings: [{ type: Schema.Types.ObjectId, ref: 'Booking' }],
-  logo: String,
+  logo: {type: String, default: 'https://res.cloudinary.com/dxatyucj2/image/upload/v1579016218/thunder-waste/black-chimpanzee-smiling-50582_ol5eps.jpg' }
 },
 { 
   timestamps: true 

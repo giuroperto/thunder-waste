@@ -6,6 +6,7 @@ const User = require('../models/user');
 //TODO add info about bookings
 router.get(('/'), (req, res, next) => {
   const activeUser = req.user;
+  // res.send(activeUser);
   User.find()
   .populate('bookings')
   .then(users => {
@@ -85,7 +86,7 @@ router.get('/employees/:id/edit', (req, res, next) => {
   const { id } = req.params;
   User.findById(id)
   .then(employee => {
-    res.render('internal/internal-edit', employee);
+    res.render('internal/user-edit', employee);
   })
   .catch(err => console.log(err));
 });
