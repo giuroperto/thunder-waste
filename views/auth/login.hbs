@@ -1,11 +1,13 @@
-<h1>LOGIN</h1>
+<h1 class="text-center mt-4">LOGIN</h1>
 <form action="/login" method="POST">
-  <label for="username">Username: </label>
-  <input type="text" name="username" id="username">
-  <label for="password">Password: </label>
-  <input type="password" name="password" id="password">
-  {{#if message}}
-  <p>{{message}}</p>
-  {{/if}}
-  <button>LOGIN</button>
+  <div class="d-flex flex-md-column align-items-center m-3">
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" required>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" required>
+    {{#if message}}
+    <div>{{message}}</div>
+    {{/if}}
+    <button class="btn btn-secondary mt-5">LOGIN</button>
+  </div>
 </form>

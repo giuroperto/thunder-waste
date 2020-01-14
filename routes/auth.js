@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const uploadCloud = require('../config/cloudinary');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 // encryption
 const bcrypt = require('bcrypt');
@@ -15,12 +17,15 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   // console.log(req.body);
+  //TODO consider how to save accountType
 
-  const { username, name, address, phone, sector, accountType, email, password, cnpj, location } = req.body;
+  // res.send(req.body);
+
+  const { username, name, address, phone, sector, accountType, email, password, cnpj, latitude, longitude } = req.body;
 
   const addLocation = {
     type: 'Point',
-    coordinates: [location[1], location[0]],
+    coordinates: [longitude, latitude],
   };
 
   const logoUrl = req.file.url;
@@ -67,10 +72,15 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 });
 
 router.get('/login', (req, res, next) => {
-  // res.send(req.user);
-  //TODO passar se eh admin ou nao - current user
   res.render('auth/login');
 });
+
+router.post('/login', passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true,
+}));
 
 module.exports = router;
 

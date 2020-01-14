@@ -21,6 +21,9 @@ const cloudinary = require('cloudinary');
 
 const app = express();
 
+// require model user
+const User = require('./models/user');
+
 //Connecting mongoose to database
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -43,7 +46,7 @@ app.use(bodyParser.urlencoded({
 
 // setting up session
 app.use(session({
-  secret: "basic-auth-secret",
+  secret: "thunder-waste",
   resave: true,
   saveUninitialized: true,
   cookie: {

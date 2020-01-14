@@ -1,44 +1,90 @@
-<h1>New Account</h1>
-<form action="/signup" method="POST" enctype="multipart/form-data">
-  <label for="username">Username: </label>
-  <input type="text" name="username" id="username" placeholder="Username" required>
-  <label for="email">Email: </label>
-  <input type="email" name="email" id="email" placeholder="Email" required>
-  <label for="name">Password: </label>
-  <input type="password" name="password" id="password" placeholder="*****" required>
-<hr>
+<h1 class="text-center mt-4">New Account</h1>
+<div class="m-5">
+  <form action="/signup" method="POST" enctype="multipart/form-data">
 
-  <label for="name">Name: </label>
-  <input type="text" name="name" id="name" placeholder="Name" required>
-  <label for="cnpj">CNPJ: </label>
-  <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" required>
-  <label for="logo">Logo: </label>
-  <input type="file" name="logo" id="logo" placeholder="Logo">
-  <label for="address">Address: </label>
-  <input type="text" name="address" id="address" placeholder="Address">
-  <label for="location">Location: </label>
-  <input type="number" min="-90" max="90" step="0.000001" name="location" id="latitude" placeholder="latitude">
-  <input type="number" min="-180" max="180" step="0.000001" name="location" id="longitude" placeholder="longitude">
-  <label for="phone">Phone: </label>
-  <input type="number" name="phone" id="phone" placeholder="Phone">
-  <label for="sector">Sector: </label>
-  <select name="sector" id="sector">
-    <option value="business">Business</option>
-    <option value="cottage-industry">Cottage Industry</option>
-    <option value="heavy-industry">Heavy Industry</option>
-    <option value="light-industry">Light Industry</option>
-    <option value="manufacturing">Manufacturing</option>
-  </select>
-  {{#if admin}}
-  <label for="accountType">Account Type: </label>
-  <select name="accountType" id="accountType">
-    <option value="client">Client</option>
-    <option value="internal">Internal</option>
-    <option value="admin">Admin</option>
-  </select>
-  {{/if}}
-  {{#if message}}
-  <p>{{message}}</p>
-  {{/if}}
-  <button type="submit">Create Account</button>
-</form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="password" class="form-control" name="password" id="password" placeholder="*****" required>
+    </div>
+
+    <br>
+    <hr>
+
+    <div class="form-group col-md-4">
+      <label for="logo">Logo: </label>
+      <input type="file" name="logo" id="logo" class="form-control-file" placeholder="Logo">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="cnpj">CNPJ: </label>
+        <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="CNPJ" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+        placeholder="Enter email" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="address">Address: </label>
+        <input type="text" name="address" id="address" placeholder="Address" class="form-control">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="latitude">Latitude: </label>
+        <input type="number" min="-90" max="90" step="0.000001" name="latitude" id="latitude" placeholder="latitude"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="longitude">Longitude: </label>
+        <input type="number" min="-180" max="180" step="0.000001" name="longitude" id="longitude"
+          placeholder="longitude" class="form-control">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="phone">Phone: </label>
+        <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="sector">Sector: </label>
+        <select class="form-control" name="sector" id="sector">
+          <option>Choose...</option>
+          <option value="business">Business</option>
+          <option value="cottage-industry">Cottage Industry</option>
+          <option value="heavy-industry">Heavy Industry</option>
+          <option value="light-industry">Light Industry</option>
+          <option value="manufacturing">Manufacturing</option>
+        </select>
+      </div>
+    </div>
+
+    {{#if admin}}
+    <div class="form-group">
+      <label for="accountType">Account Type: </label>
+      <select name="accountType" id="accountType" class="form-control">
+        <option>Choose...</option>
+        <option value="client">Client</option>
+        <option value="internal">Internal</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+    {{/if}}
+    {{#if message}}
+    <div>{{message}}</div>
+    {{/if}}
+    <button type="submit" class="btn btn-secondary">Create Account</button>
+  </form>
+</div>
