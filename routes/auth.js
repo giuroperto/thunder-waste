@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const uploadCloud = require('../config/cloudinary');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 // encryption
 const bcrypt = require('bcrypt');
@@ -67,10 +69,15 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 });
 
 router.get('/login', (req, res, next) => {
-  // res.send(req.user);
-  //TODO passar se eh admin ou nao - current user
   res.render('auth/login');
 });
+
+router.post('/login', passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true,
+}));
 
 module.exports = router;
 

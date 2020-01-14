@@ -21,6 +21,12 @@ router.get('/about', (req, res, next) => {
   res.render('about')
 })
 
+// GET LOGOUT
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/login');
+});
+
 //Route link to home-user.js route 
 const homeUser = require('./home-user')
 router.use('/', homeUser);

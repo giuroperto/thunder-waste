@@ -1,11 +1,11 @@
 <h1>LOGIN</h1>
 <form action="/login" method="POST">
   <label for="username">Username: </label>
-  <input type="text" name="username" id="username">
+  <input type="text" name="username" id="username" required>
   <label for="password">Password: </label>
-  <input type="password" name="password" id="password">
+  <input type="password" name="password" id="password" required>
   {{#if message}}
-  <p>{{message}}</p>
+  <div>{{message}}</div>
   {{/if}}
   <button>LOGIN</button>
 </form>
