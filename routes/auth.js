@@ -17,12 +17,15 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   // console.log(req.body);
+  //TODO consider how to save accountType
 
-  const { username, name, address, phone, sector, accountType, email, password, cnpj, location } = req.body;
+  // res.send(req.body);
+
+  const { username, name, address, phone, sector, accountType, email, password, cnpj, latitude, longitude } = req.body;
 
   const addLocation = {
     type: 'Point',
-    coordinates: [location[1], location[0]],
+    coordinates: [longitude, latitude],
   };
 
   const logoUrl = req.file.url;

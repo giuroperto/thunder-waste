@@ -7,37 +7,37 @@ router.get(('/'), (req, res, next) => {
   res.render('internal/internal-home.hbs');
 });
 
+// route to load list of employees
 router.get('/employees', (req, res, next) => {
-  // res.render('internal/internal-all');
-  User.find({
-      accountType: 'Internal'
-    })
+  User.find({ accountType: 'internal' })
     .then(employees => {
-      res.render('internal/internal-all', {
-        employees
-      });
+      res.render('internal/internal-all', { employees });
     })
     .catch(err => console.log(err));
   });
   
+  // route to add a new 'internal' or 'admin' user
+  //TODO only admins can perform this task
   router.get('/employees/add', (req, res, next) => {
-    // verificar se eh admin para poder criar account Type
     res.render('auth/signup');
   });
   
+  // route to load list of users
+  //TODO check if only clients
   router.get('/users', (req, res, next) => {
-    // res.render('internal/user-list');
-    User.find({ accountType: 'Client' })
+    User.find({ accountType: 'client' })
     .then(clients => {
       res.render('internal/user-list', { clients });
     })
     .catch(err => console.log(err));
   });
 
+  // route to see details of a specific user
   router.get('/users/:id', (req, res, next) => {
     // res.render('internal/user-details');
     const { id } = req.params;
     User.findById(id)
+    .populate('bookings')
     .then(client => {
       res.render('internal/user-details', client);
     })

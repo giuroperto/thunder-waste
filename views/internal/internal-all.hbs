@@ -1,1 +1,14 @@
-<h1>Employees list</h1>
+<h1>All Employees</h1>
+<ul>
+  {{#each employees}}
+  <li>
+    <a href="/staff/employees/{{this._id}}">{{this.name}} | </a>
+    <a href="/staff/employees/{{this._id}}/edit">Edit |</a>
+    {{#if admin}}
+    {{!-- add delete button --}}
+    {{/if}}
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/staff/" class="btn btn-secondary">Home</a>

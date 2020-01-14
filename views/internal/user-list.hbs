@@ -1,12 +1,14 @@
-<h1>USERS</h1>
+<h1>All Clients</h1>
 <ul>
   {{#each clients}}
   <li>
-    <a href="/users/{{this._id}}">{{this.name}} | </a>
-    <a href="/users/{{this._id}}/edit">Edit |</a>
+    <a href="/staff/users/{{this._id}}">{{this.name}} | </a>
+    <a href="/staff/users/{{this._id}}/edit">Edit |</a>
     {{#if admin}}
     {{!-- add delete button --}}
     {{/if}}
     </li>
   {{/each}}
 </ul>
+
+<a href="/staff/" class="btn btn-secondary">Home</a>
