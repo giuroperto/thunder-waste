@@ -5,9 +5,8 @@ const uploadCloud = require('../config/cloudinary');
 const Booking = require('../models/booking');
 const ensureLogin = require('connect-ensure-login');
 
-
 //GET User's Home Page
-router.get('/home', (req, res, next) => {
+router.get('/home', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const { id } = req.user;
   const { bookings } = req.user;
   User.findById(id)
@@ -79,13 +78,13 @@ router.post('/bookings', ensureLogin.ensureLoggedIn(), (req, res, next) => {
       res.redirect('/home')
     })
     .catch(error => {
-      console.log('Error', error)
+      console.log('Error', error);
     })
   })
   .catch(error => {
-    console.log('Error while booking new waste remove', error)
+    console.log('Error while booking new waste remove', error);
   })
-})
+});
 
 module.exports = router;
 
