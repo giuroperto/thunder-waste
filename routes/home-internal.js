@@ -54,6 +54,18 @@ router.get('/employees', (req, res, next) => {
     .catch(err => console.log(err));
   });
 
+  // route to delete details of a user
+router.post('/users/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  User.findByIdAndRemove(id)
+  .then(_ => {
+    req.flash('error', '');
+    req.flash('error', 'User deleted!');
+    res.redirect('/staff/users');
+  })
+  .catch(err => console.log(err));
+});
+
 router.get('/employees/:id', (req, res, next) => {
   // res.render('internal/internal-profile');
   const { id } = req.params;
@@ -70,6 +82,18 @@ router.get('/employees/:id/edit', (req, res, next) => {
   User.findById(id)
   .then(employee => {
     res.render('internal/internal-edit', employee);
+  })
+  .catch(err => console.log(err));
+});
+
+// route to delete details of a employee
+router.post('/employees/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  User.findByIdAndRemove(id)
+  .then(_ => {
+    req.flash('error', '');
+    req.flash('error', 'User deleted!');
+    res.redirect('/staff/employees');
   })
   .catch(err => console.log(err));
 });
