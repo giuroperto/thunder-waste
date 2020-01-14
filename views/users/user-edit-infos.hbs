@@ -1,11 +1,11 @@
-<h2>User edit infos</h2>
+<h2>Edit your account information</h2>
 
-<form action="/edit-infos" method="POST" enctype="multipart/form-data">
+<form action="/edit-infos/{{_id}}" method="POST" enctype="multipart/form-data">
   <label for="username">Username: </label>
   <input type="text" name="username" id="username" placeholder="Username" value="{{username}}" required>
   <label for="email">Email: </label>
   <input type="email" name="email" id="email" placeholder="Email" value="{{email}}" required>
-  <label for="name">Password: </label>
+  {{!-- <label for="name">Password: </label> --}}
   {{!-- <input type="password" name="password" id="password" placeholder="*****" value="" required> --}}
 <hr>
 
@@ -13,11 +13,9 @@
   <input type="text" name="name" id="name" placeholder="Name" value="{{name}}" required>
   <label for="cnpj">CNPJ: </label>
   <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" value="{{cnpj}}" required>
-  <label for="logo">Logo: </label>
-  <input type="file" name="logo" id="logo" placeholder="Logo" value="{{logo}}">
   <label for="address">Address: </label>
   <input type="text" name="address" id="address" placeholder="Address" value="{{address}}">
-  <label for="location">Location: </label>
+  {{!-- <label for="location">Location: </label> --}}
   {{!-- <input type="number" name="location" id="latitude" placeholder="latitude" value="{{location.coordinates[1]}}"> --}}
   {{!-- <input type="number" name="location" id="longitude" placeholder="longitude" value="{{location.coordinates[0]}}"> --}}
   <label for="phone">Phone: </label>
