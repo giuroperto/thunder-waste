@@ -31,6 +31,6 @@ router.use('/staff', homeInternal);
 
 //Route link to auth.js route
 const auth = require('./auth');
-router.use('/', auth)
+router.use('/', auth);
 
 module.exports = router;

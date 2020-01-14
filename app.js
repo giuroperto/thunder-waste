@@ -22,17 +22,82 @@ const cloudinary = require('cloudinary');
 const app = express();
 
 //Connecting mongoose to database
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(x => {
-  console.log(`Connect to Mongo DB`)
-})
-.catch(error => {
-  console.log('Error connecting to Mongo DB', error)
-})
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(x => {
+    console.log(`Connect to Mongo DB`)
+  })
+  .catch(error => {
+    console.log('Error connecting to Mongo DB', error)
+  })
 
-// setting up middlewares
+// MIDDLEWARES SETUP
+
+// setting up bodyparser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+// setting up session
+app.use(session({
+  secret: "basic-auth-secret",
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 6000000
+  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+// setting up passport
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, user);
+  });
+});
+
+app.use(flash());
+passport.use(new LocalStrategy({
+    passReqToCallback: true,
+  },
+  (req, username, password, next) => {
+    User.findOne({
+      username
+    }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return next(null, false, {
+          message: "Incorrect username"
+        });
+      }
+      if (!bcrypt.compareSync(password, user.password)) {
+        return next(null, false, {
+          message: "Incorrect password"
+        });
+      }
+
+      return next(null, user);
+    });
+  }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Views settings
 app.set('view engine', 'hbs');

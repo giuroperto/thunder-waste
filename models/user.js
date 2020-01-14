@@ -9,17 +9,20 @@ const userSchema = new Schema({
   address: String,
   location: { type: { type: String}, coordinates: [Number] },
   phone: Number,
-  sector: { type: String, enum: ['Business', 'Cottage Industry', 'Heavy Industry', 'Light Industry', 'Manufacturing'] },
-  username: { type: String, require: true, unique: true },
-  email: { type: String, require: true, unique: true },
-  password: { type: String, require: true },
-  accountType: {type: String, enum: ['Client', 'Internal', 'Admin']},
+  sector: { type: String, enum: ['business', 'cottage-industry', 'heavy-industry', 'light-industry', 'manufacturing'] },
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  accountType: {type: String, enum: ['client', 'internal', 'admin'], default: 'client'},
   bookings: [{ type: Schema.Types.ObjectId, ref: 'Booking' }],
   logo: String,
 },
 { 
   timestamps: true 
 });
+
+// for adding maps later on using the location
+userSchema.index({ location: '2dsphere' });
 
 //Creating mongoose model from our Schema
 const User = mongoose.model('User', userSchema);
