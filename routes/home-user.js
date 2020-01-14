@@ -46,13 +46,27 @@ router.get('/profile/:id', (req, res, next) => {
 router.get('/edit-infos/:id', (req, res, next) => {
   const { id } = req.params;
   res.render('users/user-edit-infos');
-  // User.findById(Id)
+  // User.findById(id)
   // .then(data => {
   //   res.render('users/user-edit-infos', data)
   // .catch(error => {
   //   console.log('There is an error', error)
   // })
   // })
+})
+
+//POST Edit User's Info Page (Update infos)
+router.post('/edit-infos/:id', (req, res, next) => {
+  const id = req.params;
+  const bodyObj = { ...req.body };
+  // const { username, name, address, phone, sector, accountType, email, password, cnpj, location } = req.body;
+  User.findByIdAndUpdate(id, { bodyObj })
+  .then(_ => {
+    res.redirect('/profile/:id')
+  })
+  .catch(error => {
+    console.log('Error while editing account infos', error)
+  })
 })
 
 module.exports = router;
