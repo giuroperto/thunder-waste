@@ -5,8 +5,8 @@ const User = require('./user');
 
 const bookingSchema = new Schema({
   date: Date,
-  time: { type: String, enum: ['Morning (8am to 12pm)', 'Afternoon (1pm to 5pm)', 'Evening (6pm to 11pm)']},
-  material: { type: String, enum: ['Plastic', 'Glass', 'Paper', 'Wood', 'Oil'] },
+  time: { type: String, enum: ['morning', 'afternoon', 'evening']},
+  material: { type: String, enum: ['plastic', 'glass', 'paper', 'wood', 'oil'] },
   quantity: Number,
   responsiblePerson: String,
   client: { type: Schema.Types.ObjectId, ref: 'User' }
