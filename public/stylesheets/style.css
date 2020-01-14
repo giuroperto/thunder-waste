@@ -6,3 +6,18 @@
 p {
   color: white;
 }
+
+.background {
+  background-size: cover;
+  background-image: url(../images/person-s-left-hand-holding-green-leaf-plant-886521.jpg);
+  position: 00;
+  height: 100vh;
+}
+
+.section3 {
+  background-size: cover;
+  background-image: url(../images/pexels-photo-479453.jpeg);
+  position: 00;
+  height: 100vh;
+}
+
