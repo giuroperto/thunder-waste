@@ -12,4 +12,8 @@
 <a href="/staff/employees" class="btn btn-secondary">See All</a>
 <a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
 <h3>Upcoming Bookings</h3>
-
+{{#each users }}
+{{#each bookings }}
+<li>{{this}}</li>
+{{/each}}
+{{/each}}
