@@ -3,17 +3,26 @@
   <img src="{{activeUser.logo}}" alt="Picture" class="w-25">
 </div>
 
-<h3>My Profile</h3>
-<a href="/staff/employees/{{activeUser._id}}" class="btn btn-secondary">See Profile</a>
-<a href="/staff/employees/{{activeUser._id}}/edit" class="btn btn-secondary">Edit Profile</a>
-<h3>Clients</h3>
-<a href="/staff/users" class="btn btn-secondary">See All</a>
-<h3>Employees</h3>
-<a href="/staff/employees" class="btn btn-secondary">See All</a>
-<a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
-<h3>Upcoming Bookings</h3>
-{{#each users }}
-{{#each bookings }}
-<li>{{this}}</li>
-{{/each}}
-{{/each}}
+<div class="d-flex flex-row">
+  <div>
+    <h3>My Profile</h3>
+    <a href="/staff/employees/{{activeUser._id}}" class="btn btn-secondary">See Profile</a>
+    <a href="/staff/employees/{{activeUser._id}}/edit" class="btn btn-secondary">Edit Profile</a>
+    <h3>Clients</h3>
+    <a href="/staff/users" class="btn btn-secondary">See All</a>
+    <h3>Employees</h3>
+    <a href="/staff/employees" class="btn btn-secondary">See All</a>
+    <a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
+  </div>
+  <div>
+    <h3>Upcoming Bookings</h3>
+    <a href="">Review Bookings</a>
+    {{#each companiesBooking }}
+    <p class="text-dark">{{this.name}}</p>
+    {{#each bookings }}
+    <li>{{this.date}} - {{this.time}} -> {{this.quantity}} kg of {{this.material}} </li>
+    {{/each}}
+    <hr>
+    {{/each}}
+  </div>
+</div>
