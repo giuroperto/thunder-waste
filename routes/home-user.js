@@ -9,7 +9,16 @@ const ensureLogin = require('connect-ensure-login');
 //GET User's Home Page
 router.get('/home', (req, res, next) => {
   const { id } = req.user;
-  res.render('users/user-home', req.user)
+  const { bookings } = req.user;
+  User.findById(id)
+  //populating bookings array with all information located at Bookings model (new waste remove schedule)
+  .populate('bookings')
+  .then(data => {
+    res.render('users/user-home', data)
+  })
+  .catch(error => {
+    console.log(error)
+  })
 })
 
 
@@ -20,8 +29,8 @@ router.get('/profile', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   .then(data => {
     // res.send(req.user)
     res.render('users/user-profile', data)
-    .catch(error => {
-      console.log('There is an error', error)
+  .catch(error => {
+    console.log('There is an error', error)
     })
   })
 })
@@ -67,12 +76,11 @@ router.post('/bookings', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     const bookingId = data.id;
     User.findByIdAndUpdate(id, { $push: {bookings: bookingId}}, {new: true})
     .then(obj => {
-      res.send(obj)
+      res.redirect('/home')
     })
     .catch(error => {
       console.log('Error', error)
     })
-    // res.redirect('/profile')
   })
   .catch(error => {
     console.log('Error while booking new waste remove', error)

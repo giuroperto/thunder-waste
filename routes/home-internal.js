@@ -1,22 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const ensureLogin = require('connect-ensure-login');
 
 // rendezirando route home
 //TODO add info about bookings
-router.get(('/'), (req, res, next) => {
+router.get(('/'), ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const activeUser = req.user;
   // res.send(activeUser);
   User.find()
   .populate('bookings')
   .then(users => {
-    res.render('internal/internal-home.hbs', { activeUser, users });
+    let companiesBooking = users.filter(company => company.bookings.length > 0)
+    // res.send(companiesBooking);
+    // res.send({users})
+    res.render('internal/internal-home.hbs', { activeUser, companiesBooking });
   })
   .catch(err => console.log(err));
 });
 
 // route to load list of employees
-router.get('/employees', (req, res, next) => {
+router.get('/employees', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   User.find({ accountType: 'internal' })
     .then(employees => {
       res.render('internal/internal-all', { employees });
@@ -26,12 +30,12 @@ router.get('/employees', (req, res, next) => {
   
   // route to add a new 'internal' or 'admin' user
   //TODO only admins can perform this task
-  router.get('/employees/add', (req, res, next) => {
+  router.get('/employees/add', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     res.render('auth/signup');
   });
   
   // route to load list of users
-  router.get('/users', (req, res, next) => {
+  router.get('/users', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     User.find({ accountType: 'client' })
     .then(clients => {
       res.render('internal/user-list', { clients });
@@ -41,7 +45,7 @@ router.get('/employees', (req, res, next) => {
 
   // route to see details of a specific user
   // TODO show bookings?
-  router.get('/users/:id', (req, res, next) => {
+  router.get('/users/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     const { id } = req.params;
     User.findById(id)
     .populate('bookings')
@@ -51,7 +55,7 @@ router.get('/employees', (req, res, next) => {
     .catch(err => console.log(err));
   });
 
-  router.get('/users/:id/edit', (req, res, next) => {
+  router.get('/users/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     const { id } = req.params;
     User.findById(id)
     .then(client => {
@@ -60,9 +64,9 @@ router.get('/employees', (req, res, next) => {
     .catch(err => console.log(err));
   });
 
-  //TODO test route
+  //TODO add admin role
   // route to delete details of a user
-router.post('/users/:id/delete', (req, res, next) => {
+router.post('/users/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const { id } = req.params;
   User.findByIdAndRemove(id)
   .then(_ => {
@@ -73,7 +77,7 @@ router.post('/users/:id/delete', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
-router.get('/employees/:id', (req, res, next) => {
+router.get('/employees/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const { id } = req.params;
   User.findById(id)
   .then(employee => {
@@ -82,7 +86,7 @@ router.get('/employees/:id', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
-router.get('/employees/:id/edit', (req, res, next) => {
+router.get('/employees/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const { id } = req.params;
   User.findById(id)
   .then(employee => {
@@ -91,9 +95,9 @@ router.get('/employees/:id/edit', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
-//TODO test route
+//TODO add admin role
 // route to delete details of a employee
-router.post('/employees/:id/delete', (req, res, next) => {
+router.post('/employees/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const { id } = req.params;
   User.findByIdAndRemove(id)
   .then(_ => {
