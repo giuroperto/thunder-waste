@@ -2,9 +2,16 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+// rendezirando route home
+//TODO add info about bookings
 router.get(('/'), (req, res, next) => {
-  // add active user + name in the welcome page
-  res.render('internal/internal-home.hbs');
+  const activeUser = req.user;
+  User.find()
+  .populate('bookings')
+  .then(users => {
+    res.render('internal/internal-home.hbs', { activeUser, users });
+  })
+  .catch(err => console.log(err));
 });
 
 // route to load list of employees
@@ -23,7 +30,6 @@ router.get('/employees', (req, res, next) => {
   });
   
   // route to load list of users
-  //TODO check if only clients
   router.get('/users', (req, res, next) => {
     User.find({ accountType: 'client' })
     .then(clients => {
@@ -33,8 +39,8 @@ router.get('/employees', (req, res, next) => {
   });
 
   // route to see details of a specific user
+  // TODO show bookings?
   router.get('/users/:id', (req, res, next) => {
-    // res.render('internal/user-details');
     const { id } = req.params;
     User.findById(id)
     .populate('bookings')
@@ -45,7 +51,6 @@ router.get('/employees', (req, res, next) => {
   });
 
   router.get('/users/:id/edit', (req, res, next) => {
-    // res.render('internal/user-edit');
     const { id } = req.params;
     User.findById(id)
     .then(client => {
@@ -54,6 +59,7 @@ router.get('/employees', (req, res, next) => {
     .catch(err => console.log(err));
   });
 
+  //TODO test route
   // route to delete details of a user
 router.post('/users/:id/delete', (req, res, next) => {
   const { id } = req.params;
@@ -67,7 +73,6 @@ router.post('/users/:id/delete', (req, res, next) => {
 });
 
 router.get('/employees/:id', (req, res, next) => {
-  // res.render('internal/internal-profile');
   const { id } = req.params;
   User.findById(id)
   .then(employee => {
@@ -77,7 +82,6 @@ router.get('/employees/:id', (req, res, next) => {
 });
 
 router.get('/employees/:id/edit', (req, res, next) => {
-  // res.render('internal/internal-edit');
   const { id } = req.params;
   User.findById(id)
   .then(employee => {
@@ -86,6 +90,7 @@ router.get('/employees/:id/edit', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
+//TODO test route
 // route to delete details of a employee
 router.post('/employees/:id/delete', (req, res, next) => {
   const { id } = req.params;

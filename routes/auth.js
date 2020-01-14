@@ -83,7 +83,3 @@ router.post('/login', passport.authenticate("local", {
 }));
 
 module.exports = router;
-
-
-  // <label for="logo">Logo: </label>
-  // <input type="file" name="logo" id="logo" placeholder="Logo">
