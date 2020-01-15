@@ -85,6 +85,7 @@
   font-weight: 800;
   font-size: 3vw;
   height: 5vw;
+  background-color: rgba(255, 255, 255, 0.4);
   
 }
 
@@ -111,8 +112,12 @@
 
 .main-map-sign-div {
   display: flex;
-  padding-top: 15vw;
+  padding-top: 9vw;
+  justify-content: space-around;
+}
 
+.main-map-sign-div h3 {
+  font-weight: 600;
 }
 
 .recycle-centre-sign {
@@ -198,8 +203,8 @@
 }
 
 #map2 {
-  height: 400px;
-  width: 60%;
+  height: 25vw;
+  width: 50%;
 }
 
 
