@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const ensureLogin = require('connect-ensure-login');
+const Booking = require('../models/booking');
 
 // check routes according to the role of the user
 const checkClient  = checkRoles('client');
@@ -13,13 +14,10 @@ const checkInternalAdmin  = checkRoles2('internal', 'admin');
 //TODO add info about bookings
 router.get(('/'), checkInternalAdmin, (req, res, next) => {
   const activeUser = req.user;
-  // res.send(activeUser);
   User.find()
   .populate('bookings')
   .then(users => {
     let companiesBooking = users.filter(company => company.bookings.length > 0)
-    // res.send(companiesBooking);
-    // res.send({users})
     res.render('internal/internal-home.hbs', { activeUser, companiesBooking });
   })
   .catch(err => console.log(err));
@@ -47,6 +45,20 @@ router.get('/employees', checkInternalAdmin, (req, res, next) => {
     User.find({ accountType: 'client' })
     .then(clients => {
       res.render('internal/user-list', { clients });
+    })
+    .catch(err => console.log(err));
+  });
+
+  // route to load list of bookings
+  router.get('/bookings', checkInternalAdmin, (req, res, next) => {
+    Booking.find()
+    .then(bookings => {
+      if (bookings.date >= Date.now()) {
+        res.send(bookings);
+      } else {
+        res.send('nada');
+      }
+      // res.render('internal/bookings', { bookings });
     })
     .catch(err => console.log(err));
   });

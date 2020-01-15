@@ -13,10 +13,15 @@
     <h3>Employees</h3>
     <a href="/staff/employees" class="btn btn-secondary">See All</a>
     <a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
+    {{!-- {{#if admin}} --}}
+    {{!-- <h3>Admin</h3>
+    <a href="/staff/admin" class="btn btn-secondary">See All</a>
+    <a href="/staff/admin/add" class="btn btn-secondary">Add New Admin</a> --}}
+    {{!-- {{/if}} --}}
   </div>
   <div>
     <h3>Upcoming Bookings</h3>
-    <a href="">Review Bookings</a>
+    <a href="/staff/bookings">Review Bookings</a>
     {{#each companiesBooking }}
     <p class="text-dark">{{this.name}}</p>
     {{#each bookings }}
