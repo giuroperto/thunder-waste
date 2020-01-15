@@ -52,10 +52,10 @@ router.get('/edit-infos/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => 
   User.findById(id)
     .then(data => {
       res.render('users/user-edit-infos', data)
-        .catch(error => {
+    })
+    .catch(error => {
           console.log('There is an error', error)
         })
-    })
 })
 
 //POST Edit User's Info Page (Update infos)
