@@ -192,12 +192,15 @@
   height: 10vw;
 } */
 
-#map {
+#map1 {
   height: 400px;
   width: 60%;
 }
 
-
+#map2 {
+  height: 400px;
+  width: 60%;
+}
 
 
 

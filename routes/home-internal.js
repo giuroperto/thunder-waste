@@ -28,7 +28,7 @@ router.get(('/'), checkInternalAdmin, (req, res, next) => {
 
       res.render('internal/internal-home.hbs', {
         activeUser,
-        companiesBooking
+        companiesBooking, message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
@@ -41,7 +41,7 @@ router.get('/employees', checkInternalAdmin, (req, res, next) => {
     })
     .then(employees => {
       res.render('internal/internal-all', {
-        employees
+        employees, message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
@@ -64,13 +64,14 @@ router.get('/users', checkInternalAdmin, (req, res, next) => {
     })
     .then(clients => {
       res.render('internal/user-list', {
-        clients
+        clients, message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
 });
 
 // route to load list of bookings
+//FIXME bookings
 router.get('/bookings', checkInternalAdmin, (req, res, next) => {
   Booking.find()
     .then(bookings => {
@@ -210,7 +211,6 @@ function checkRoles(role) {
     } else {
       req.flash('error', '');
       req.flash('error', 'You can\'t access this page!');
-      console.log(req.flash('error'));
       res.redirect('/login')
     }
   }
@@ -221,6 +221,8 @@ function checkRoles2(role1, role2) {
     if (req.isAuthenticated() && (req.user.accountType === role1 || req.user.accountType === role2)) {
       return next();
     } else {
+      req.flash('error', '');
+      req.flash('error', 'You can\'t access this page!');
       res.redirect('/login')
     }
   }

@@ -1,49 +1,44 @@
-// const Cooperative = require('../models/cooperatives');
-
 // console.log('We are connected! =)');
 
-// const geocoder = new google.maps.Geocoder();
-// const mapDiv = document.getElementById('map');
-// const addressInput = document.getElementById('address');
+// const mapDiv2 = document.getElementById('map2');
 
-// // const bounds = new google.maps.LatLngBounds();
+// const bounds2 = new google.maps.LatLngBounds();
 
-// const clientsAPI = axios.create({
-//   baseURL: 'http://localhost:3000/api',
+// const cooperativesAPI = axios.create({
+//   baseURL: 'http://localhost:3000/api/cooperatives',
 // });
 
 // window.onload = () => {
-//   getUsers();
+//   getCooperatives();
 // };
 
-// function getUsers() {
-//   clientsAPI.get()
+// function getCooperatives() {
+//   cooperativesAPI.get()
 //     .then(response => {
 //       // response.send(response);
-//       pinUsers(response.data);
+//       pinCooperatives(response.data);
 //     })
 //     .catch(error => {
 //       console.log(error);
 //     })
 // }
 
-// function pinUsers(places) {
+// function pinCooperatives(places) {
 
-//   if (mapDiv) {
+//   if (mapDiv2) {
 //     const saoPaulo = {
 //       lat: -23.6345838,
 //       lng: -46.7227298
 //     };
-    
+
 //     const markers = [];
 
-//     const map = new google.maps.Map(mapDiv, {
-//       zoom: 13,
+//     const map = new google.maps.Map(mapDiv2, {
+//       zoom: 10,
 //       center: saoPaulo,
 //     });
-    
-//     // map.fitBounds(bounds);
 
+    
 //     places.forEach(place => {
 //       if (place.location) {
 //         const center = {
@@ -56,34 +51,12 @@
 //           title: place.name,
 //         });
 //         markers.push(pin);
+//         const loc = new google.maps.LatLng(pin.position.lat(), pin.position.lng());
+//         bounds2.extend(loc);
 //       }
 //     });
-
+    
+    
+//     map.fitBounds(bounds2);
 //   }
-// }
-
-// const geocodeAddress = () => {
-//   let address = document.getElementById('address').value;
-
-//   geocoder.geocode({
-//     address
-//   }, (results, status) => {
-
-//     if (status === 'OK') {
-//       const latitude = results[0].geometry.location.lat();
-//       const longitude = results[0].geometry.location.lng();
-
-//       document.getElementById('latitude').value = latitude;
-//       document.getElementById('longitude').value = longitude;
-//     } else {
-//       alert('Geocode was not successful for the following reason: ' + status);
-//     }
-//   });
-// }
-
-// if (addressInput) {
-//   addressInput.addEventListener('focusout', () => {
-//     geocodeAddress();
-//   });
-
 // }
