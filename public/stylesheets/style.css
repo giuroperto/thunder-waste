@@ -3,21 +3,53 @@
   margin: 0;
 }
 
-p {
+.img {
+  width: 100%;
+}
+
+/* p {
   color: white;
+} */
+
+.navbar {
+  height: 7vw;
 }
 
 .background {
+  margin-top: -4vw;
   background-size: cover;
   background-image: url(../images/hand_with_plant.jpg);
   position: 00;
-  height: 100vh;
+  height: 60vw;
+}
+
+.slogan {
+  position: absolute;
+  left: 55vw;
+  top: 30vw;
 }
 
 .section3 {
   background-size: cover;
   background-image: url(../images/paper_image.jpeg);
   position: 00;
-  height: 100vh;
+  height: 60vw;
 }
 
+.ourservices{
+  margin: 4vw;
+}
+
+.service-img {
+  height: 20vw;
+  margin-bottom: 3vw;
+}
+
+.dots p{
+  margin: 2vw;
+}
+
+.icon {
+  margin: 2vw;
+  font-size: 3vw;
+}
