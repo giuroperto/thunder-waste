@@ -7,12 +7,13 @@
   width: 100%;
 }
 
-/* p {
-  color: white;
-} */
-
 .navbar {
   height: 7vw;
+}
+
+.logo {
+  width: 10vw;
+  height: 10vw;
 }
 
 .background {
@@ -29,32 +30,134 @@
   top: 30vw;
 }
 
+.how-it-works {
+  margin: 5vw;
+  font-size: 4vw;
+  font-weight: 500;
+  color: darkslategray;
+}
+
+.slow-speed {
+  -webkit-animation: fa-spin 6s infinite linear;
+  animation: fa-spin 6s infinite linear;
+}
+
+.circle-icon{
+  display: inline-block;
+  border-style: solid;
+  border-radius: 100%;
+  box-shadow: 0vw 0vw 0.5vw lightseagreen;
+  padding: 0.5em 0.5em;
+  color: lightseagreen; 
+}
+
+.service-slogan {
+  margin: 2vw;
+}
+
+.service-text {
+  margin-bottom: 5vw;
+}
+
 .section3 {
   background-size: cover;
-  background-image: url(../images/paper_image.jpeg);
+  background-image: url(../images/plant.jpeg);
   position: 00;
   height: 60vw;
 }
 
+.service-page {
+  background-color: #e8e7e3;
+}
+
 .ourservices{
-  margin: 4vw;
+  padding-top: 4vw;
+  font-size: 4vw;
+}
+
+.service-boxes {
+  border-radius: 15%;
+  margin-left: 5vw
 }
 
 .service-img {
   height: 20vw;
-  margin-bottom: 3vw;
+  margin-bottom: 0.5vw;
 }
 
 .dots p{
-  margin: 2vw;
+  margin: 1vw; 
 }
 
 .icon {
   margin: 2vw;
-  font-size: 3vw;
+  font-size: 2.5vw;
 }
+
+.type-pages-header {
+  background-size: cover;
+  background-image: url(../images/map-2.png);
+  position: 00;
+  height: 60vw;
+
+}
+
+.footer-colums {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+  align-content: space-around;
+  margin-top: -1vw;
+}
+
+.footer-text {
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.footer-logo{
+  width: 20vw;
+  height: 20vw;
+  margin-right: 10vw;
+}
+
+.footer-fa {
+  margin-right: 2vw;
+}
+
+.name-size {
+  font-size: 2vw;
+}
+
+/* .footer-size{
+  height: 10vw;
+} */
 
 #map {
   height: 400px;
   width: 60%;
+}
+
+
+
+.truck {
+  animation: fly 0.5s ease-out infinite;
+  animation-delay: 2s;
+}
+@keyframes fly {
+  0% {
+      transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+      transform: translate3d(70px, 0, 0);
+  }
+
+  50% {
+      transform: translate3d(70px, 0, 0);
+  }
+
+  100% {
+      transform: translate3d(5px, 0, 0);
+  }
 }
