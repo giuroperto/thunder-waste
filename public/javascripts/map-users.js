@@ -1,13 +1,13 @@
-// // console.log('We are connected! =)');
+// _____________________________
 
 // const geocoder = new google.maps.Geocoder();
-// const mapDiv = document.getElementById('map');
+// const mapDiv = document.getElementById('map1');
 // const addressInput = document.getElementById('address');
 
-// // const bounds = new google.maps.LatLngBounds();
+// const bounds = new google.maps.LatLngBounds();
 
 // const clientsAPI = axios.create({
-//   baseURL: 'http://localhost:3000/api',
+//   baseURL: 'http://localhost:3000/api/clients',
 // });
 
 // window.onload = () => {
@@ -40,8 +40,7 @@
 //       center: saoPaulo,
 //     });
     
-//     // map.fitBounds(bounds);
-
+    
 //     places.forEach(place => {
 //       if (place.location) {
 //         const center = {
@@ -54,9 +53,12 @@
 //           title: place.name,
 //         });
 //         markers.push(pin);
+//         const loc = new google.maps.LatLng(pin.position.lat(), pin.position.lng());
+//         bounds.extend(loc);
 //       }
 //     });
-
+    
+//     map.fitBounds(bounds);
 //   }
 // }
 
