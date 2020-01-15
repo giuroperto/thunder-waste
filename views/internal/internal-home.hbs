@@ -1,0 +1,37 @@
+{{#if message}}
+<div>{{message}}</div>
+{{/if}}
+
+<div class="d-flex flex-row justify-content-between">
+  <h1 class="d-flex align-items-center">WELCOME, {{activeUser.name}}</h1>
+  <img src="{{activeUser.logo}}" alt="Picture" class="w-25">
+</div>
+
+<div class="d-flex flex-row">
+  <div>
+    <h3>My Profile</h3>
+    <a href="/staff/employees/{{activeUser._id}}" class="btn btn-secondary">See Profile</a>
+    <a href="/staff/employees/{{activeUser._id}}/edit" class="btn btn-secondary">Edit Profile</a>
+    <h3>Clients</h3>
+    <a href="/staff/users" class="btn btn-secondary">See All</a>
+    <h3>Employees</h3>
+    <a href="/staff/employees" class="btn btn-secondary">See All</a>
+    <a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
+    {{!-- {{#if admin}} --}}
+    {{!-- <h3>Admin</h3>
+    <a href="/staff/admin" class="btn btn-secondary">See All</a>
+    <a href="/staff/admin/add" class="btn btn-secondary">Add New Admin</a> --}}
+    {{!-- {{/if}} --}}
+  </div>
+  <div>
+    <h3>Upcoming Bookings</h3>
+    <a href="/staff/bookings">Review Bookings</a>
+    {{#each companiesBooking }}
+    <p class="text-dark">{{this.name}}</p>
+    {{#each bookings }}
+    <li>{{this.date}} - {{this.time}} -> {{this.quantity}} kg of {{this.material}} </li>
+    {{/each}}
+    <hr>
+    {{/each}}
+  </div>
+</div>

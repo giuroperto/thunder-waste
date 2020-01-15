@@ -1,0 +1,16 @@
+<h1>All Employees</h1>
+<ul>
+  {{#each employees}}
+  <li>
+    <a href="/staff/employees/{{this._id}}">{{this.name}} | </a>
+    <a href="/staff/employees/{{this._id}}/edit">Edit |</a>
+    {{#if admin}}
+    <form action="/staff/employees/{{this._id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+    </form>
+    {{/if}}
+  </li>
+  {{/each}}
+</ul>
+
+<a href="/staff/" class="btn btn-secondary">Home</a>
