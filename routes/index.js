@@ -8,17 +8,22 @@ router.get('/', (req, res, next) => {
 
 //GET Services Page
 router.get('/services', (req, res, next) => {
-  res.render('services')
+  res.render('services');
 })
 
 //GET Materials Information Page
 router.get('/recycling-waste-types', (req, res, next) => {
-  res.render('reclying-types')
+  res.render('reclying-types');
 })
 
 //GET About Us Page
 router.get('/about', (req, res, next) => {
-  res.render('about')
+  res.render('about');
+})
+
+//GET Redirect Page
+router.get('/redirect', (req, res, next) => {
+  res.render('redirect');
 })
 
 // GET LOGOUT
@@ -38,5 +43,9 @@ router.use('/staff', homeInternal);
 //Route link to auth.js route
 const auth = require('./auth');
 router.use('/', auth);
+
+//Route link to api.js route
+const api = require('./api');
+router.use('/api', api);
 
 module.exports = router;

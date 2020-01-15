@@ -28,7 +28,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
     coordinates: [longitude, latitude],
   };
 
-  const logoUrl = req.file.url;
+    const logoUrl = req.file.url;
 
   if (username === '' || password === '' || email === '' || name === '' || cnpj === '') {
     req.flash('error', '');
@@ -76,7 +76,7 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/login', passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/redirect",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true,

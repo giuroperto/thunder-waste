@@ -15,6 +15,7 @@ var storage = cloudinaryStorage({
   filename: function (req, file, cb) { 
     cb(null, file.originalname); // The file on cloudinary -> same name as the original file name 
   } 
+  
 });
 
 const uploadCloud = multer({ storage });
