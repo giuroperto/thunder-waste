@@ -5,9 +5,11 @@
     <input type="text" name="username" id="username" required>
     <label for="password">Password: </label>
     <input type="password" name="password" id="password" required>
+
     {{#if message}}
-    <div>{{message}}</div>
+    <div> {{message}} </div>
     {{/if}}
+    
     <button class="btn btn-secondary mt-5">LOGIN</button>
     <p>If you don't have an account, click <a href="/signup">here</a></p>
   </div>

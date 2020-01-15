@@ -12,14 +12,14 @@ const bcryptSalt = 10;
 router.get('/signup', (req, res, next) => {
   // res.send(req.user);
   //TODO passar se eh admin ou nao - current user
-  res.render('auth/signup');
+  res.render('auth/signup', { message: req.flash('error') });
 });
 
+//TODO consider how to save accountType
 router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
-  // console.log(req.body);
-  //TODO consider how to save accountType
-
-  // res.send(req.body);
+  
+  // console.log(req);
+  // res.send(req);
 
   const { username, name, address, phone, sector, accountType, email, password, cnpj, latitude, longitude } = req.body;
 
@@ -44,7 +44,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   .then(user => {
     if (user !== null) {
       req.flash('error', '');
-      req.flash('error', `Username combination not valid. Please try again!`);
+      req.flash('error', 'Username combination not valid. Please try again!');
       res.render('auth/signup', { message: req.flash('error') });
       return;
     };
@@ -72,7 +72,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 });
 
 router.get('/login', (req, res, next) => {
-  res.render('auth/login');
+  res.render('auth/login', { message: req.flash('error') });
 });
 
 router.post('/login', passport.authenticate("local", {
