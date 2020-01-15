@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user');
+const Cooperative = require('../models/cooperatives');
 
 router.get('/', (req, res) => {
   User.find({ accountType: 'client' })
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/cooperatives', (req, res) => {
-  User.find({ accountType: 'client' })
+  Cooperative.find()
     .then((response) => res.json(response))
     .catch((err) => {
       throw new Error(err);
