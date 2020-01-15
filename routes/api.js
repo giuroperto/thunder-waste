@@ -11,4 +11,12 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/cooperatives', (req, res) => {
+  User.find({ accountType: 'client' })
+    .then((response) => res.json(response))
+    .catch((err) => {
+      throw new Error(err);
+    });
+});
+
 module.exports = router;
