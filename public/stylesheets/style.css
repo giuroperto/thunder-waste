@@ -53,3 +53,8 @@
   margin: 2vw;
   font-size: 3vw;
 }
+
+#map {
+  height: 400px;
+  width: 60%;
+}

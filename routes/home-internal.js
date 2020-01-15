@@ -11,7 +11,6 @@ const checkInternal  = checkRoles('internal');
 const checkInternalAdmin  = checkRoles2('internal', 'admin');
 
 // rendezirando route home
-//TODO add info about bookings
 router.get(('/'), checkInternalAdmin, (req, res, next) => {
   const activeUser = req.user;
   User.find()
@@ -79,6 +78,7 @@ router.get('/employees', checkInternalAdmin, (req, res, next) => {
     const { id } = req.params;
     User.findById(id)
     .then(client => {
+      // res.send(client.location.coordinates);
       res.render('internal/user-edit', client);
     })
     .catch(err => console.log(err));
@@ -127,6 +127,26 @@ router.post('/employees/:id/delete', checkAdmin, (req, res, next) => {
   })
   .catch(err => console.log(err));
 });
+
+router.post('/:id/edit', checkInternalAdmin, (req, res, next) => {
+  const { id } = req.params;
+  // res.send(req.body);
+  const { username, name, cnpj, email, address, latitude, longitude, phone, sector } = req.body;
+
+  const addLocation = {
+    type: 'Point',
+    coordinates: [longitude, latitude],
+  }
+
+  User.findByIdAndUpdate(id, { username, name, cnpj, email, address, location: addLocation, phone, sector })
+  .then(user => {
+    req.flash('error', '');
+    req.flash('error', `User ${user.name} updated successfully`);
+    res.redirect('/staff/');
+  })
+  .catch(err => console.log(err))
+
+})
 
 function checkRoles(role) {
   return function(req, res, next) {
