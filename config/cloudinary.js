@@ -12,6 +12,7 @@ var storage = cloudinaryStorage({
   cloudinary,
   folder: 'thunder-waste', // The name of the folder in cloudinary 
   allowedFormats: ['jpg', 'png'],
+  transformation: [{ width: 250, height: 250, crop: "limit" }],
   filename: function (req, file, cb) { 
     cb(null, file.originalname); // The file on cloudinary -> same name as the original file name 
   } 
