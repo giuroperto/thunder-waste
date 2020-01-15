@@ -1,12 +1,16 @@
+{{#if message}}
+<div>{{message}}</div>
+{{/if}}
+
 <h2>User's Homepage</h2>
 
-<h3>Welcome back, {{name}}!</h3>
+<h3>Welcome back, {{data.name}}!</h3>
 
 <h4>Your last bookings:</h4>
 
 
 
-{{#each bookings}}
+{{#each data.bookings}}
 <div>
 <div>
 {{this.date}}
