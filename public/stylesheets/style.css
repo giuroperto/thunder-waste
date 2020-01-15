@@ -30,11 +30,17 @@
   top: 30vw;
 }
 
+.learn-more {
+  border: solid lightseagreen;
+  box-shadow: 0vw 0vw 0.5vw lightseagreen;
+
+}
+
 .how-it-works {
   margin: 5vw;
   font-size: 4vw;
   font-weight: 500;
-  color: darkslategray;
+  color: #424242;
 }
 
 .slow-speed {
@@ -60,11 +66,60 @@
 }
 
 .section3 {
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-image: url(../images/plant.jpeg);
   position: 00;
   height: 60vw;
+  color: white;
 }
+
+.section3-text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 7vw;
+}
+
+.section3-h2 {
+  font-weight: 800;
+  font-size: 3vw;
+  height: 5vw;
+  
+}
+
+.check-types {
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+  
+}
+
+.check-types h3 {
+  font-weight: 500;
+}
+
+.waste-type-btn {
+  color: darkslategray;
+  font-size: 1.3vw;
+  border-radius: 5%;
+  box-shadow: 0vw 0vw 0.5vw darkgray;
+
+}
+
+.main-map-sign-div {
+  display: flex;
+  padding-top: 15vw;
+
+}
+
+.recycle-centre-sign {
+  width: 20vw;
+  height: 20vw;
+}
+
 
 .service-page {
   background-color: #e8e7e3;
@@ -73,16 +128,20 @@
 .ourservices{
   padding-top: 4vw;
   font-size: 4vw;
+  color: #424242;
 }
 
 .service-boxes {
   border-radius: 15%;
-  margin-left: 5vw
+  margin-left: 5vw;
+  border: solid #424242;
 }
 
 .service-img {
   height: 20vw;
   margin-bottom: 0.5vw;
+  border: solid lightseagreen;
+  border-radius: 5%;
 }
 
 .dots p{
@@ -137,6 +196,8 @@
   height: 400px;
   width: 60%;
 }
+
+
 
 
 

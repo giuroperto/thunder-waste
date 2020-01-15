@@ -13,7 +13,7 @@ router.get('/services', (req, res, next) => {
 
 //GET Materials Information Page
 router.get('/recycling-waste-types', (req, res, next) => {
-  res.render('reclying-types');
+  res.render('recycling-types');
 })
 
 //GET About Us Page
