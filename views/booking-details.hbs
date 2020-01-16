@@ -10,6 +10,11 @@
 {{#if client}}
 
 <a href="/bookings/{{_id}}/edit">Edit Booking</a>
-<a href="/bookings/{{_id}}/delete">Delete Booking</a>
+<form action="/bookings/{{_id}}/delete" method="POST"><button type="submit">Delete Booking</button></form>
+<a href="/home">Home</a>
 
+{{/if}}
+
+{{#if admininternal}}
+<a href="/staff">Home</a>
 {{/if}}

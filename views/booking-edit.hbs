@@ -1,10 +1,31 @@
 <h1>Edit Booking</h1>
-<form action=""></form>
-
+<form action="/bookings/{{_id}}/edit" method="POST">
+  <label for="date">Date: </label>
+  <input type="date" name="date" id="date" placeholder="Date" value="{{date}}" required>
+  <label for="time">Time: </label>
+  <select name="time" id="time" required>
+    <option>Choose...</option>
+    <option value="morning">Morning (8am to 12pm)</option>
+    <option value="afternoon">Afternoon (1pm to 5pm)</option>
+    <option value="evening">Evening (6pm to 11pm)</option>
+  </select>
+  <label for="material">Material: </label>
+  <select name="material" id="material" required>
+    <option>Choose...</option>
+    <option value="glass">Glass</option>
+    <option value="oil">Oil</option>
+    <option value="paper">Paper</option>
+    <option value="plastic">Plastic</option>
+    <option value="wood">Wood</option>
+    <option value="steel">Steel</option>
+  </select>
+  <label for="quantity">Quantity: </label>
+  <input type="number" name="quantity" id="quantity" placeholder="Quantity" value="{{quantity}}" required>
+  <label for="kg">Kg </label>
+  <label for="responsiblePerson">Responsible Person: </label>
+  <input type="text" name="responsiblePerson" id="responsiblePerson" placeholder="Who will receive our team"
+    value="{{responsiblePerson}}" required>
+  <button type="submit">Schedule your waste removal</button>
+</form>
 <a href="/bookings/{{_id}}">Return</a>
-
-{{!-- <div>Date: {{date}}</div>
-<div>Time: {{time}}</div>
-<div>Material: {{material}}</div>
-<div>Quantity: {{quantity}}</div>
-<div>Responsible Person: {{responsiblePerson}}</div> --}}
+<a href="/home">Home</a>

@@ -12,17 +12,19 @@
 
 {{#each data.bookings}}
 <div>
-<div>
-{{this.date}}
-{{this.time}}
-</div>
-<div>
-{{this.material}}
-{{this.quantity}}
-</div>
-<div>
-{{this.responsiblePerson}}
-</div>
+  <div>
+    <a href="/bookings/{{this._id}}">
+      {{this.date}}
+      {{this.time}}
+    </a>
+  </div>
+  <div>
+    {{this.material}}
+    {{this.quantity}}
+  </div>
+  <div>
+    {{this.responsiblePerson}}
+  </div>
 </div>
 {{/each}}
 
