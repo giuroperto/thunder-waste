@@ -66,6 +66,7 @@ function pinAll(places, mapPath) {
           lat: place.location.coordinates[1],
           lng: place.location.coordinates[0]
         };
+
         const pin = new google.maps.Marker({
           position: center,
           map: map,

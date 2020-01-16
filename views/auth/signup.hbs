@@ -1,7 +1,7 @@
 <h1 class="text-center mt-4">New Account</h1>
 <div class="m-5">
   {{#if message}}
-  <div>{{message}}</div>
+  <div class="all-messages">{{message}}</div>
   {{/if}}
   <form action="/signup" method="POST" enctype="multipart/form-data">
 
@@ -12,7 +12,7 @@
 
     <div class="form-group">
       <label for="name">Password</label>
-      <input type="password" class="form-control" name="password" id="password" placeholder="*****" required>
+      <input type="password" class="form-control" name="password" id="myPassword" placeholder="*****" required>
     </div>
 
     <br>

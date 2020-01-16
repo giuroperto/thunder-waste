@@ -1,21 +1,15 @@
 <h1>All Bookings</h1>
-<a href="/staff/users/{{_id}}/edit">Edit Account</a>
-<div>CNPJ: {{cnpj}}</div>
-<div>Sector: {{sector}}</div>
-<div>Address: {{address}}</div>
-<div>CNPJ: {{cnpj}}</div>
-<div>Phone: {{phone}}</div>
-<div>Username: {{username}}</div>
-<div>Email: {{email}}</div>
-{{#if bookings}}
+{{#each companiesBooking}}
+<p class="text-dark">{{this.name}}</p>
 {{#each bookings}}
-<div>{{date}}</div>
-<div>{{material}}</div>
-<div>{{quantity}}</div>
+<div><a href="/bookings/{{_id}}">Booking: {{date}} - {{time}}</a></div>
+<div><a href="/bookings/{{_id}}/edit">Edit Booking</a></div>
+<div>
+  <form action="/bookings/{{_id}}/delete" method="POST"><button type="submit">Delete</button>
+</div>
+<br>
 {{/each}}
-{{/if}}
+<hr>
+{{/each}}
 
-  {{!-- add map --}}
-  {{!-- location: { type: { type: String}, coordinates: [Number] }, --}}
-
-  <a href="/staff/" class="btn btn-secondary">Home</a>
+<a href="/staff/" class="btn btn-secondary">Home</a>

@@ -98,7 +98,24 @@ router.get('/bookings', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     id
   } = req.user;
   res.render('users/user-bookings', req.user)
-})
+});
+
+router.get('/bookings/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Booking.findById(req.params.id)
+  .then(booking => {
+    res.render('booking-edit', booking);
+  })
+  .catch(err => console.log(err))
+});
+
+router.get('/bookings/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Booking.findById(req.params.id)
+  .populate('client')
+  .then(booking => {
+    res.render('booking-details', booking);
+  })
+  .catch(err => console.log(err))
+});
 
 //POST User's Bookings Page (schedule a new waste remove)
 router.post('/bookings', ensureLogin.ensureLoggedIn(), (req, res, next) => {

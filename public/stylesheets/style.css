@@ -207,7 +207,58 @@
   width: 50%;
 }
 
+.redirect-bg {
+  background-image: url(../images/trunk-redirect.jpg);
+  background-size: cover;
+  height: 60vh;
+  color: white;
+}
 
+.error-message {
+  background-color: tomato;
+}
+
+.success-message {
+  background-color: teal;
+}
+
+
+.strength_meter{
+	height:23px;
+  /* width: 154px; */
+	background:silver;
+	
+}
+.strength_meter div{
+	height:23px;
+	width:100%;
+	height:23px;
+	text-align:center;
+	color:black;
+	font-weight:bold;
+	line-height:23px;
+}
+.veryweak{
+	background-color: #FFA0A0;
+border-color: #F04040!important
+}
+.weak{
+background-color: #FFB78C;
+border-color: #FF853C!important;
+}
+.medium{
+background-color: #FFEC8B;
+border-color: #FC0!important;
+}
+.strong{
+background-color: #C3FF88;
+border-color: #8DFF1C!important;
+}
+
+.all-messages {
+  background-color: goldenrod;
+  padding: 10px;
+}
 
 .truck {
   animation: fly 0.5s ease-out infinite;
