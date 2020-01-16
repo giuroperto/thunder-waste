@@ -42,34 +42,11 @@
         <input type="text" name="longitude" id="longitude" placeholder="longitude" class="form-control" value={{location.coordinates.[0]}}>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
+    <div class="form-group">
         <label for="phone">Phone: </label>
         <input type="number" name="phone" id="phone" class="form-control" value="{{phone}}" placeholder="Phone">
-      </div>
-      <div class="form-group col-md-6">
-        <select class="form-control" name="sector" value="{{sector}}" id="sector" required>
-          <option value="">Choose...</option>
-          <option value="business">Business</option>
-          <option value="cottage-industry">Cottage Industry</option>
-          <option value="heavy-industry">Heavy Industry</option>
-          <option value="light-industry">Light Industry</option>
-          <option value="manufacturing">Manufacturing</option>
-        </select>
-      </div>
     </div>
 
-    {{#if admin}}
-    <div class="form-group">
-      <label for="accountType">Account Type: </label>
-      <select name="accountType" id="accountType" value="{{accountType}}" class="form-control" required>
-        <option>Choose...</option>
-        <option value="client">Client</option>
-        <option value="internal">Internal</option>
-        <option value="admin">Admin</option>
-      </select>
-    </div>
-    {{/if}}
     {{#if message}}
     <div class="all-messages">{{message}}</div>
     {{/if}}

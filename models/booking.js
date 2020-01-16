@@ -6,7 +6,7 @@ const User = require('./user');
 const bookingSchema = new Schema({
   date: Date,
   time: { type: String, enum: ['morning', 'afternoon', 'evening']},
-  material: { type: String, enum: ['plastic', 'glass', 'paper', 'wood', 'oil'] },
+  material: { type: String, enum: ['plastic', 'glass', 'paper', 'wood', 'oil', 'steel'] },
   quantity: Number,
   responsiblePerson: String,
   client: { type: Schema.Types.ObjectId, ref: 'User' }

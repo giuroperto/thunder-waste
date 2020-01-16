@@ -7,5 +7,9 @@
 <div>Responsible Person: {{responsiblePerson}}</div>
 <div>Client: {{client.name}}</div>
 
+{{#if client}}
+
 <a href="/bookings/{{_id}}/edit">Edit Booking</a>
 <a href="/bookings/{{_id}}/delete">Delete Booking</a>
+
+{{/if}}
