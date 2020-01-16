@@ -18,10 +18,9 @@ router.get('/signup', (req, res, next) => {
 //TODO consider how to save accountType
 router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   
-  // console.log(req);
   // res.send(req);
 
-  const { username, name, address, phone, sector, accountType, email, password, cnpj, latitude, longitude } = req.body;
+  const { username, name, address, phone, sector, accountType, email, myPassword, cnpj, latitude, longitude } = req.body;
 
   const addLocation = {
     type: 'Point',
@@ -30,7 +29,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 
     const logoUrl = req.file.url;
 
-  if (username === '' || password === '' || email === '' || name === '' || cnpj === '') {
+  if (username === '' || myPassword === '' || email === '' || name === '' || cnpj === '') {
     req.flash('error', '');
     req.flash('error', 'You must complete all required fields before continuing!');
     res.render('auth/signup', { message: req.flash('error') });
@@ -38,7 +37,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   }
 
   const salt = bcrypt.genSaltSync(bcryptSalt);
-  const hashPassword = bcrypt.hashSync(password, salt);
+  const hashPassword = bcrypt.hashSync(myPassword, salt);
 
   User.findOne({ username })
   .then(user => {

@@ -33,7 +33,8 @@ router.get(('/'), checkInternalAdmin, (req, res, next) => {
 
       res.render('internal/internal-home.hbs', {
         activeUser,
-        companiesBooking, message: req.flash('error')
+        companiesBooking,
+        message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
@@ -45,15 +46,16 @@ router.get('/employees', checkInternalAdmin, (req, res, next) => {
       accountType: 'internal'
     })
     .then(employees => {
+      const allOtherEmployees = employees.filter(employee => employee._id !== req.user._id);
       res.render('internal/internal-all', {
-        employees, message: req.flash('error')
+        allOtherEmployees,
+        message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
 });
 
 // route to add a new 'internal' or 'admin' user
-//TODO only admins can perform this task
 router.get('/employees/add', checkAdmin, (req, res, next) => {
   req.flash('error', '');
   req.flash('error', 'You can\'t access this page!');
@@ -69,7 +71,8 @@ router.get('/users', checkInternalAdmin, (req, res, next) => {
     })
     .then(clients => {
       res.render('internal/user-list', {
-        clients, message: req.flash('error')
+        clients,
+        message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
@@ -78,16 +81,24 @@ router.get('/users', checkInternalAdmin, (req, res, next) => {
 // route to load list of bookings
 //FIXME bookings
 router.get('/bookings', checkInternalAdmin, (req, res, next) => {
-  Booking.find()
-    .then(bookings => {
-      if (bookings.date >= Date.now()) {
-        res.send(bookings);
-      } else {
-        res.send('nada');
-      }
-      // res.render('internal/bookings', { bookings });
+  User.find()
+    .populate('bookings')
+    .then(users => {
+      let companiesBooking = users.filter(company => company.bookings.length > 0)
+      res.render('internal/bookings.hbs', {
+        companiesBooking,
+        message: req.flash('error')
+      });
     })
     .catch(err => console.log(err));
+});
+
+router.get('/myprofile', (req, res, next) => {
+  res.render('internal/user-details', req.user);
+});
+
+router.get('/myprofile/edit', (req, res, next) => {
+  res.render('internal/user-edit', req.user);
 });
 
 // route to see details of a specific user

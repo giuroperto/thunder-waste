@@ -1,5 +1,5 @@
 {{#if message}}
-<div>{{message}}</div>
+<div class="all-messages">{{message}}</div>
 {{/if}}
 
 <div class="d-flex flex-row justify-content-between">
@@ -10,8 +10,8 @@
 <div class="d-flex flex-row">
   <div>
     <h3>My Profile</h3>
-    <a href="/staff/employees/{{activeUser._id}}" class="btn btn-secondary">See Profile</a>
-    <a href="/staff/employees/{{activeUser._id}}/edit" class="btn btn-secondary">Edit Profile</a>
+    <a href="/staff/myprofile" class="btn btn-secondary">See Profile</a>
+    <a href="/staff/myprofile/edit" class="btn btn-secondary">Edit Profile</a>
     <h3>Clients</h3>
     <a href="/staff/users" class="btn btn-secondary">See All</a>
     <h3>Employees</h3>
