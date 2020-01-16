@@ -9,7 +9,6 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-// const logger = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
@@ -17,7 +16,7 @@ const multer = require('multer');
 const ensureLogin = require('connect-ensure-login');
 const nodemon = require('nodemon');
 const cloudinary = require('cloudinary');
-// debug?
+const favicon = require('serve-favicon');
 
 const app = express();
 
@@ -26,17 +25,20 @@ const User = require('./models/user');
 
 //Connecting mongoose to database
 mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(x => {
+  console.log(`Connect to Mongo DB`)
+})
+.catch(error => {
+  console.log('Error connecting to Mongo DB', error)
   })
-  .then(x => {
-    console.log(`Connect to Mongo DB`)
-  })
-  .catch(error => {
-    console.log('Error connecting to Mongo DB', error)
-  })
-
-// MIDDLEWARES SETUP
+  
+  // MIDDLEWARES SETUP
+  
+  // setting up favicon
+  app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // setting up bodyparser
 app.use(bodyParser.json());

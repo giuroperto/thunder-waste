@@ -22,6 +22,11 @@ router.get(('/'), checkInternalAdmin, (req, res, next) => {
       //   }
       // })
       let companiesBooking = users.filter(company => company.bookings.length > 0)
+      // .map(company => {
+      //   company.bookings[0].date = `${company.bookings[0].date.getDate()} - ${company.bookings[0].date.getMonth() + 1} - ${company.bookings[0].date.getFullYear()}`;
+      // });
+
+      // res.send(companiesBooking);
       // .map(companyBooking => {
 
       // })
@@ -105,7 +110,7 @@ router.get('/users/:id/edit', checkInternalAdmin, (req, res, next) => {
   } = req.params;
   User.findById(id)
     .then(client => {
-      // res.send(client.location.coordinates);
+      // res.send(client.location.coordinates.1);
       res.render('internal/user-edit', client);
     })
     .catch(err => console.log(err));

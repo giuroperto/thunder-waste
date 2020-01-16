@@ -207,7 +207,20 @@
   width: 50%;
 }
 
+.redirect-bg {
+  background-image: url(../images/trunk-redirect.jpg);
+  background-size: cover;
+  height: 60vh;
+  color: white;
+}
 
+.error-message {
+  background-color: tomato;
+}
+
+.success-message {
+  background-color: teal;
+}
 
 .truck {
   animation: fly 0.5s ease-out infinite;
