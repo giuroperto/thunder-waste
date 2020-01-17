@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.gray-color {
+  background-color: #e8e7e3;
+}
+
 .img {
   width: 100%;
 }
@@ -199,7 +203,7 @@
 
 #map1 {
   height: 400px;
-  width: 60%;
+  width: 40%;
 }
 
 #map2 {
@@ -229,6 +233,7 @@
 	background:silver;
 	
 }
+
 .strength_meter div{
 	height:23px;
 	width:100%;
