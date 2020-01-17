@@ -14,6 +14,7 @@ const checkInternalAdmin = checkRoles2('internal', 'admin');
 router.get(('/'), checkInternalAdmin, (req, res, next) => {
   const activeUser = req.user;
   let isAdmin = (activeUser.accountType === 'admin');
+  let isInternal = (activeUser.accountType === 'internal');
 
   User.find()
     .populate('bookings')
@@ -24,6 +25,7 @@ router.get(('/'), checkInternalAdmin, (req, res, next) => {
       res.render('internal/internal-home.hbs', {
         activeUser,
         isAdmin,
+        isInternal,
         companiesBooking,
         message: req.flash('error')
       });
@@ -154,9 +156,15 @@ router.get('/users/:id', checkInternalAdmin, (req, res, next) => {
 });
 
 router.get('/users/:id/edit', checkInternalAdmin, (req, res, next) => {
+  let activeUser = req.user;
   const {
     id
   } = req.params;
+  if (activeUser._id !== id){
+    req.flash('error', '');
+    req.flash('error', 'You don\'t have permission to perform this task');
+    res.render('auth/login', { message: req.flash('error') });
+  }
   User.findById(id)
     .then(client => {
       // res.send(client.location.coordinates.1);
@@ -192,9 +200,15 @@ router.get('/employees/:id', checkAdmin, (req, res, next) => {
 });
 
 router.get('/employees/:id/edit', checkAdmin, (req, res, next) => {
+  let activeUser = req.user;
   const {
     id
   } = req.params;
+  if (activeUser._id !== id){
+    req.flash('error', '');
+    req.flash('error', 'You don\'t have permission to perform this task');
+    res.render('auth/login', { message: req.flash('error') });
+  }
   User.findById(id)
     .then(employee => {
       res.render('internal/user-edit', employee);
