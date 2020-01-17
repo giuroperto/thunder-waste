@@ -1,15 +1,28 @@
-<img src="{{logo}}" alt="Client's logo">
-<h1>{{name}}</h1>
-<a href="/staff/users/{{_id}}/edit">Edit Account</a>
-<div>CNPJ: {{cnpj}}</div>
-<div>Sector: {{sector}}</div>
-<div>Address: {{address}}</div>
-<div>CNPJ: {{cnpj}}</div>
-<div>Phone: {{phone}}</div>
-<div>Username: {{username}}</div>
-<div>Email: {{email}}</div>
-
-  <a href="/staff/" class="btn btn-secondary">Home</a>
-
-
-  
+<div class="gray-color bg-profile">
+  <div class="d-flex flex-column align-items-center pt-2 px-5 pb-3">
+    <div class="d-flex flex-row justify-content-around profile-box mb-3">
+      <div class="">
+        <div class="d-flex flex-column justify-content-center align-items-center pt-5 pb-3">
+          <div class='d-flex flex-column align-items-center'>
+            <img src="{{logo}}" alt="profile-picture" class="profile-logo mb-4">
+            <h2 class='h2-profile mb-3'>{{name}}'s profile</h2>
+          </div>
+          <div class="d-flex flex-column pl-2">
+            <div> <b>Username:</b> {{username}}</div>
+            <div><b>Email:</b> {{email}}</div>
+            <div><b>Company:</b> {{name}}</div>
+            <div><b>Sector:</b>: {{sector}}</div>
+            <div><b>CNPJ:</b>{{cnpj}}</div>
+            <div><b>Address:</b> {{address}}</div>
+            <div><b>Phone:</b> {{phone}}</div>
+          </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-around mb-3 px-2">
+          <a href="/staff" class="btn btn-blue-grey">User Home</a>
+          <a href="/staff/users/{{_id}}/edit" class="btn btn-blue-grey">Edit Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

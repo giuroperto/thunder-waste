@@ -455,10 +455,15 @@
 
 /* USER PROFILE */
 
+.bg-profile {
+  background-image: url(../images/beach.jpeg);
+  background-size: cover;
+}
+
 .profile-box {
   border: solid lightslategray 1px;
   border-radius: 7px;
-  background-color: rgba(44, 191, 165, 0.1);
+  background-color: rgba(211, 211, 211, 0.9);
 
 }
 
