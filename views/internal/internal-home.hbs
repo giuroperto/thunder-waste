@@ -17,19 +17,19 @@
     <h3>Employees</h3>
     <a href="/staff/employees" class="btn btn-secondary">See All</a>
     <a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
-    {{!-- {{#if admin}} --}}
-    {{!-- <h3>Admin</h3>
+    {{#if isAdmin}}
+    <h3>Admin</h3>
     <a href="/staff/admin" class="btn btn-secondary">See All</a>
-    <a href="/staff/admin/add" class="btn btn-secondary">Add New Admin</a> --}}
-    {{!-- {{/if}} --}}
+    <a href="/staff/admin/add" class="btn btn-secondary">Add New Admin</a>
+    {{/if}}
   </div>
   <div>
     <h3>Upcoming Bookings</h3>
     <a href="/staff/bookings">Review Bookings</a>
     {{#each companiesBooking }}
     <p class="text-dark">{{this.name}}</p>
-    {{#each bookings }}
-    <li>{{this.date}} - {{this.time}} -> {{this.quantity}} kg of {{this.material}} </li>
+    {{#each this.bookings }}
+    <li>{{this.date}} - {{this.time}}</li>
     {{/each}}
     <hr>
     {{/each}}

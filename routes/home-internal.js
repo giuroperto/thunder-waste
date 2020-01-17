@@ -13,47 +13,67 @@ const checkInternalAdmin = checkRoles2('internal', 'admin');
 // rendezirando route home
 router.get(('/'), checkInternalAdmin, (req, res, next) => {
   const activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin');
+
   User.find()
     .populate('bookings')
+    .populate('client')
     .then(users => {
-      // users.forEach(user => {
-      //   if (user.bookings.length !== 0) {
-      //     console.log(user.bookings[0].date.getMonth());
-      //   }
-      // })
-      let companiesBooking = users.filter(company => company.bookings.length > 0)
-      // .map(company => {
-      //   company.bookings[0].date = `${company.bookings[0].date.getDate()} - ${company.bookings[0].date.getMonth() + 1} - ${company.bookings[0].date.getFullYear()}`;
-      // });
-
-      // res.send(companiesBooking);
-      // .map(companyBooking => {
-
-      // })
+      let companiesBooking = users.filter(company => company.bookings.length > 0);
 
       res.render('internal/internal-home.hbs', {
         activeUser,
+        isAdmin,
         companiesBooking,
         message: req.flash('error')
       });
+
     })
     .catch(err => console.log(err));
 });
 
 // route to load list of employees
 router.get('/employees', checkInternalAdmin, (req, res, next) => {
+  const activeUser = req.user;
+  let isInternal = (activeUser.accountType === 'internal');
   User.find({
       accountType: 'internal'
     })
     .then(employees => {
       const allOtherEmployees = employees.filter(employee => employee._id !== req.user._id);
+      // if (allOtherEmployees.length == 0) {
+      //   req.flash('error', '');
+      //   req.flash('error', 'There are no employees in our database :/');
+      // }
       res.render('internal/internal-all', {
         allOtherEmployees,
+        isInternal,
         message: req.flash('error')
       });
     })
     .catch(err => console.log(err));
 });
+
+router.get('/admin', checkAdmin, (req, res, next) => {
+  const activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin');
+  User.find({
+    accountType: 'admin'
+  })
+  .then(admins => {
+    const allOtherAdmins = admins.filter(admin => admin._id !== req.user._id);
+    // if (allOtherEmployees.length == 0) {
+    //   req.flash('error', '');
+    //   req.flash('error', 'There are no employees in our database :/');
+    // }
+    res.render('internal/internal-all', {
+      allOtherAdmins,
+      isAdmin,
+      message: req.flash('error')
+    });
+  })
+  .catch(err => console.log(err));
+})
 
 // route to add a new 'internal' or 'admin' user
 router.get('/employees/add', checkAdmin, (req, res, next) => {
@@ -66,12 +86,18 @@ router.get('/employees/add', checkAdmin, (req, res, next) => {
 
 // route to load list of users
 router.get('/users', checkInternalAdmin, (req, res, next) => {
+  const activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin');
+  // console.log(isAdmin);
+  // res.send(isAdmin);
+
   User.find({
       accountType: 'client'
     })
     .then(clients => {
       res.render('internal/user-list', {
         clients,
+        isAdmin,
         message: req.flash('error')
       });
     })

@@ -2,31 +2,21 @@
 <div class="all-messages">{{message}}</div>
 {{/if}}
 
-<h2>User's Homepage</h2>
-
 <h3>Welcome back, {{data.name}}!</h3>
 
-<h4>Your last bookings:</h4>
-
-
+<h4>Your last bookings</h4>
 
 {{#each data.bookings}}
 <div>
-<div>
-{{this.date}}
-{{this.time}}
+  <a href="/bookings/{{this._id}}">
+    {{this.date}} - {{this.time}}
+  </a>
+  -> {{this.quantity}} kg of {{this.material}} | {{this.responsiblePerson}}
 </div>
-<div>
-{{this.material}}
-{{this.quantity}}
-</div>
-<div>
-{{this.responsiblePerson}}
-</div>
-</div>
+<hr>
 {{/each}}
 
 <br><br>
-<a href="/profile">My account</a>
+<a href="/profile" class="btn btn-blue-grey">My account</a>
 <br><br>
-<a href="/bookings">Schedule waste remove</a>
+<a href="/bookings" class="btn btn-blue-grey">Schedule waste remove</a>
