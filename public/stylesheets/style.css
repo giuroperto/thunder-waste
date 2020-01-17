@@ -453,6 +453,38 @@
 
 /* LOGIN */
 
+.bg-login {
+  background-image: url(../images/flower.jpeg);
+  background-size: cover;
+}
+
+/* USER HOME */
+
+.user-h3 {
+  font-weight: 600;
+  color: lightslategray;
+}
+
+.user-h4 {
+  font-weight: 400;
+  color: lightseagreen;
+  text-decoration: underline;
+}
+
+.user-logo {
+  border-radius: 100%;
+  width: 145px;
+  height: 145px;
+  border: solid lightslategray 2px;
+
+}
+
+.editbtn {
+  color: white;
+}
+
+
+
 /* USER PROFILE */
 
 .bg-profile {
