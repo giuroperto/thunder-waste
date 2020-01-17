@@ -42,7 +42,6 @@
 .learn-more {
   border: solid lightseagreen;
   box-shadow: 0vw 0vw 0.5vw lightseagreen;
-
 }
 
 .how-it-works {
@@ -117,7 +116,6 @@
   font-size: 1.3vw;
   border-radius: 2%;
   box-shadow: 0vw 0vw 0.5vw black;
-
 }
 
 .main-map-sign-div {
@@ -230,7 +228,6 @@
   background-image: url(../images/map-2.png);
   position: 00;
   height: 60vw;
-
 }
 
 .footer-colums {
@@ -365,8 +362,32 @@ padding-right: 35rem;
   align-items: flex-start;
 }
 
+.div-bar {
+  height: 3px;
+  width: 135px;
+  background: #13a599;
+  margin-bottom: 2vh;
+}
+
+.background-about {
+  background-image: url(../images/header-bee.jpg);
+  background-size: cover;
+  height: 22vw;
+}
+
+.background-about h2 {
+  position: relative;
+  padding-top: 15vh;
+  color: darkslategray;
+  font-weight: 600;
+  font-size: 3.5vw;
+  padding-right: 35rem;
+}
+
+/*  WASTE TYPE PAGE */
+
 .background-waste {
-  background-image: url(/images/header-2.jpeg);
+  background-image: url(../images/header-2.jpeg);
   background-size: cover;
   height: 22vw;
 }
@@ -377,7 +398,6 @@ padding-right: 35rem;
   color: grey;
   /* text-justify: inter-character; */
 }
-​
 .title-waste2 {
   font-size: 1.5rem;
   padding: 3rem 12rem 3rem 12rem;
@@ -393,7 +413,6 @@ padding-right: 35rem;
   font-size: 3.5vw;
   padding-right: 35rem;
 }
-​
 .waste-type-grid {
   display: flex;
   align-items: center;
