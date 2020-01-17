@@ -427,7 +427,6 @@ border-color: #8DFF1C!important;
   padding: 3rem 12rem 3rem 12rem;
   color: grey;
   font-weight: 600;
-  text-decoration: ;
 }
 
 .background-waste h2 {
@@ -437,10 +436,6 @@ border-color: #8DFF1C!important;
   font-weight: 600;
   font-size: 3.5vw;
   padding-right: 35rem;
-}
-
-.main-div-types {
-  /* border: solid; */
 }
 
 .waste-type-grid {
