@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+.gray-color {
+  background-color: #E8E7E3;
+}
+
+
 .img {
   width: 100%;
 }
@@ -75,27 +80,25 @@
   display: flex;
   flex-direction: column;
   background-size: cover;
-  background-image: url(../images/plant.jpeg);
+  background-image: url(../images/wood-header.jpeg);
   position: 00;
-  height: 60vw;
   color: white;
+  height: 100vh;
 }
 
 .section3-text {
   display: flex;
   flex-direction: column;
-  padding-top: 7vw;
+  padding-top: 10vh;
 }
 
 .section3-h2 {
-  font-weight: 800;
+  font-weight: 500;
   font-size: 3vw;
-  height: 5vw;
-  background-color: rgba(255, 255, 255, 0.4);
-  transform: skew(9deg, 0deg);
-  font-style: italic;
+  height: 5vh;
+  /* font-style: italic; */
   width: 75vw;
-  color: black;
+  color: rgba(255, 255, 255, 0.9);
   margin-left: 10vw;
 }
 
@@ -105,14 +108,12 @@
   justify-content: center;
   align-items: center;
   align-content: space-around;
+  padding-top: 15vh;
 }
 
-.waste-type-btn {
-  color: black;
-  background-color: lightseagreen;
-  font-size: 1.3vw;
-  border-radius: 2%;
-  box-shadow: 0vw 0vw 0.5vw black;
+.recycle-centers {
+  font-size: 30px;
+  color: #f5f5f5 ;
 }
 
 .main-map-sign-div {
@@ -256,19 +257,15 @@
   font-size: 2vw;
 }
 
-/* .footer-size{
-  height: 10vw;
-} */
-
 #map1 {
   height: 400px;
-  width: 60%;
+  width: 40%;
 }
 
 #map2 {
-  height: 25vw;
-  width: 50%;
-  border: solid forestgreen;
+  height: 55vh;
+  width: 60vw;
+  border: solid grey 1px;
   border-radius: 2%;
 }
 
@@ -328,9 +325,22 @@
   font-weight: 400;
 }
 
+.about-text2 h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
 .about-text {
-  /* padding-top: 1vw; */
-  padding-left: 35vw;
+  padding-left: 5vw;
+  padding-right: 20vw;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-text2 {
+  padding-left: 50vw;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -377,8 +387,8 @@
 .title-waste2 {
   font-size: 1.5rem;
   padding: 3rem 12rem 3rem 12rem;
-  color: grey;
-  font-weight: 600;
+  color: 666;
+  font-weight: 400;
 }
 
 .background-waste h2 {
