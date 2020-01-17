@@ -7,21 +7,17 @@
   </div>
   <div class="d-flex justify-content-between">
     <div>
-      <ul>
-        {{#each clients}}
-        <li>
-          <a href="/staff/users/{{this._id}}">{{this.name}} | </a>
-          <a href="/staff/users/{{this._id}}/edit">Edit |</a>
-        </li>
+      {{#each clients}}
+      <div>
+        <a href="/staff/users/{{this._id}}">{{this.name}} | </a>
+        <a href="/staff/users/{{this._id}}/edit">Edit |</a>
         {{#if isAdmin}}
         <form action="/staff/users/{{isAdmin._id}}/delete" method="POST">
           <button type="submit">Delete</button>
         </form>
         {{/if}}
-        {{/each}}
-
-
-      </ul>
+      </div>
+      {{/each}}
     </div>
     <div id="map1" class="align-items-end"></div>
   </div>
