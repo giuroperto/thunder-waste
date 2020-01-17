@@ -1,31 +1,35 @@
-{{#if message}}
-<div class="all-messages">{{message}}</div>
-{{/if}}
+<div class="gray-color">
+  <div class="pb-4">
+    {{#if message}}
+    <div class="all-messages">{{message}}</div>
+    {{/if}}
+  </div>
 
-<h2>User's profile</h2>
+  <div class="d-flex flex-column align-items-center pt-5 px-5">
+    <div class="d-flex flex-row justify-content-around">
+      <div class="pr-4">
+        <div class="d-flex justify-content-around">
+          <a href="/home" class="btn btn-blue-grey">User Home</a>
+          <a href="/edit-infos/{{data._id}}" class="btn btn-blue-grey">Edit account</a>
+        </div>
+        <div class="d-flex flex-column justify-content-center pt-5 pb-5">
+          <div>
+            <h2>{{data.name}}'s profile</h2>
+          </div>
+          <div class="d-flex flex-column">
+            <div>Username: {{data.username}}</div>
+            <div>Company: {{data.name}}</div>
+            <div>Sector: {{data.sector}}</div>
+            <div>CNPJ: {{data.cnpj}}</div>
+            <div>Address: {{data.address}}</div>
+            <div>Phone: {{data.phone}}</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="{{data.logo}}" alt="profile-picture">
+      </div>
+    </div>
 
-<a href="/home">User Home</a>
-<br>
-<a href="/edit-infos/{{data._id}}">Edit account information</a>
-
-<img src="{{data.logo}}" alt="profile-picture">
-
-<div>Username: {{data.username}}</div>
-<br>
-<div>Company: {{data.name}}</div>
-<br>
-<div>Sector: {{data.sector}}</div>
-<br>
-
-<div>CNPJ: {{data.cnpj}}</div>
-<br>
-
-<div>Address: {{data.address}}</div>
-<br>
-
-<div>Phone: {{data.phone}}</div>
-
-
-
-
-
+  </div>
+</div>

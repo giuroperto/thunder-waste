@@ -14,6 +14,7 @@ const checkInternalAdmin = checkRoles2('internal', 'admin');
 router.get(('/'), checkInternalAdmin, (req, res, next) => {
   const activeUser = req.user;
   let isAdmin = (activeUser.accountType === 'admin');
+  let isInternal = (activeUser.accountType === 'internal');
 
   User.find()
     .populate('bookings')
@@ -24,6 +25,7 @@ router.get(('/'), checkInternalAdmin, (req, res, next) => {
       res.render('internal/internal-home.hbs', {
         activeUser,
         isAdmin,
+        isInternal,
         companiesBooking,
         message: req.flash('error')
       });
