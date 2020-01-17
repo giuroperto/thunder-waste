@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.gray-color {
+  background-color: #e8e7e3;
+}
+
 .img {
   width: 100%;
 }
@@ -13,7 +17,10 @@
 
 .logo {
   width: 10vw;
+<<<<<<< HEAD
   /* height: 10vw; */
+=======
+>>>>>>> dev
 }
 
 .background {
@@ -28,7 +35,10 @@
   position: absolute;
   left: 58vw;
   top: 20vw;
+<<<<<<< HEAD
   /* border: solid; */
+=======
+>>>>>>> dev
 }
 
 .slogan h1 {
@@ -94,12 +104,19 @@
   height: 5vw;
   background-color: rgba(255, 255, 255, 0.4);
   transform: skew(9deg,0deg);
+<<<<<<< HEAD
   font-style: italic; 
   width: 75vw;
   color: black;
   margin-left: 10vw;
 
   
+=======
+  font-style: italic;
+  width: 75vw;
+  color: black;
+  margin-left: 10vw;
+>>>>>>> dev
 }
 
 .check-types {
@@ -135,7 +152,10 @@
   font-weight: 600;
   font-size: 1.5vw;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 .coop-div {
   display: flex;
   flex-direction: column;
@@ -144,13 +164,19 @@
   padding: 12px 12px 0 12px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .1);
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 }
 
 .recycle-centre-sign {
   width: 17vw;
   height: 17vw;
+<<<<<<< HEAD
   
+=======
+>>>>>>> dev
 }
 
 .bee-and-sign {
@@ -159,7 +185,10 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 #circle {
   height: 5vw;
   width: 5vw;
@@ -174,6 +203,7 @@
   text-align: center;
   display: flex;
 }
+<<<<<<< HEAD
 
 .bee {
   width: 15vw;
@@ -183,6 +213,14 @@
 
 .bg-pages {
   background-color: #e8e7e3;
+=======
+.bee {
+  width: 15vw;
+  height: 12vw;
+}
+.bg-pages {
+  background-color: #E8E7E3;
+>>>>>>> dev
 }
 
 .ourservices{
@@ -194,7 +232,11 @@
 .div-bar-service {
   height: 3px;
   width: 250px;
+<<<<<<< HEAD
   background: #13a599;
+=======
+  background: #13A599;
+>>>>>>> dev
   /* margin-bottom: 2vh; */
   margin: -60px auto 60px;
 }
@@ -203,17 +245,27 @@
   border-radius: 15px;
   margin-left: 5vw;
   background-color: rgba(255, 255, 255, .8);
+<<<<<<< HEAD
   /* border:  */
+=======
+>>>>>>> dev
 }
 
 .service-boxes:hover {
   box-shadow: 0vw 0vw 4vw  black;
+<<<<<<< HEAD
 
 }
 
 .lead {
   color: #999;
   font-size: 1em; 
+=======
+}
+.lead {
+  color: #999;
+  font-size: 1em;
+>>>>>>> dev
 }
 
 .service-img {
@@ -256,7 +308,10 @@
 
 .footer-logo{
   width: 20vw;
+<<<<<<< HEAD
   /* height: 20vw; */
+=======
+>>>>>>> dev
   margin-right: 10vw;
 }
 
@@ -274,7 +329,7 @@
 
 #map1 {
   height: 400px;
-  width: 60%;
+  width: 40%;
 }
 
 #map2 {
@@ -306,35 +361,143 @@
 	background:silver;
 	
 }
-.strength_meter div{
-	height:23px;
-	width:100%;
-	height:23px;
-	text-align:center;
-	color:black;
-	font-weight:bold;
-	line-height:23px;
-}
-.veryweak{
-	background-color: #FFA0A0;
-  border-color: #F04040!important
-}
-.weak{
-background-color: #FFB78C;
-border-color: #FF853C!important;
-}
-.medium{
-background-color: #FFEC8B;
-border-color: #FC0!important;
-}
-.strong{
-background-color: #C3FF88;
-border-color: #8DFF1C!important;
-}
 
 .all-messages {
   background-color: goldenrod;
   padding: 10px;
+}
+<<<<<<< HEAD
+.veryweak{
+	background-color: #FFA0A0;
+  border-color: #F04040!important
+=======
+
+/* ABOUT US PAGE */
+​
+.title-about {
+  font-size: 2rem;
+  padding: 4rem 20rem;
+  color: grey;
+>>>>>>> dev
+}
+​
+.green-color {
+  color: lightseagreen;
+  font-style: italic;
+  font-weight: 400;
+}
+​
+.about-us-sections {
+  display: flex;
+  margin-top: 3vw;
+}
+​
+.about-img-h2 {
+  display: flex;
+  padding-left: 5vw;
+}
+​
+.about-img-h2 img {
+  width: 20vw;
+  height: 15vw;
+  border: solid #13a599 1px;
+  border-radius: 4px;
+
+}
+​
+.about-text h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+​
+.about-text {
+  /* padding-top: 1vw; */
+  padding-left: 35vw;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+​
+.div-bar {
+    height: 3px;
+    width: 135px;
+    background: #13a599;
+    margin-bottom: 2vh;
+}
+​
+.background-about {
+  background-image: url(../images/header-bee.jpg);
+  background-size: cover;
+  height: 22vw;
+​
+}
+​
+.background-about h2 {
+  position: relative;
+  padding-top: 15vh;
+  color: darkslategray;
+  font-weight: 600;
+  font-size: 3.5vw;
+  padding-right: 35rem;
+}
+​
+/*  WASTE TYPE PAGE */
+​
+.background-waste {
+  background-image: url(../images/header-2.jpeg);
+  background-size: cover;
+  height: 22vw;
+​
+}
+​
+.title-waste {
+  font-size: 2rem;
+  padding: 3rem 12rem 0.5rem 12rem;
+  color: grey;
+  /* text-justify: inter-character; */
+}
+​
+.title-waste2 {
+  font-size: 1.5rem;
+  padding: 3rem 12rem 3rem 12rem;
+  color: grey;
+  font-weight: 600;
+}
+​
+.background-waste h2 {
+  position: relative;
+  padding-top: 15vh;
+  color: darkslategray;
+  font-weight: 600;
+  font-size: 3.5vw;
+  padding-right: 35rem;
+}
+​
+.waste-type-grid {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+}
+​
+.waste-type-grid div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+​
+.waste-type-grid img {
+  width: 12vw;
+}
+​
+.img-hover-zoom--colorize img {
+  transition: transform .1s, filter 1.5s ease-in-out;
+  filter: grayscale(100%);
+}
+​
+.img-hover-zoom--colorize:hover img {
+  filter: grayscale(0);
+  transform: scale(1.1);
 }
 
 /* ABOUT US PAGE */

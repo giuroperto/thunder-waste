@@ -108,6 +108,17 @@ router.get('/bookings/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) 
   .catch(err => console.log(err))
 });
 
+router.post('bookings/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const { id } = req.params;
+  Booking.findByIdAndRemove(id)
+  .then(_ => {
+    req.flash('error', '');
+    req.flash('error', 'Booking deleted!');
+    res.redirect('/home');
+  })
+  .catch(err => console.log(err))
+});
+
 router.get('/bookings/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Booking.findById(req.params.id)
   .populate('client')
@@ -127,8 +138,9 @@ router.post('/bookings', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     time,
     material,
     quantity,
-    responsiblePerson
+    responsiblePerson,
   } = req.body;
+
   Booking.create({
       client: id,
       date,

@@ -1,10 +1,57 @@
-<h1>Edit Booking</h1>
-<form action=""></form>
+<div class="gray-color px-5">
+  <div class="d-flex justify-content-end pt-4">
+    <a href="/home" class="btn btn-blue-grey">Home</a>
+  </div>
 
-<a href="/bookings/{{_id}}">Return</a>
-
-{{!-- <div>Date: {{date}}</div>
-<div>Time: {{time}}</div>
-<div>Material: {{material}}</div>
-<div>Quantity: {{quantity}}</div>
-<div>Responsible Person: {{responsiblePerson}}</div> --}}
+  <div class="d-flex justify-content-center p-3">
+    <h1 class="h1 font-weight-normal">Edit Booking</h1>
+  </div>
+  <form action="/bookings/{{_id}}/edit" method="POST" class="px-5">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="date">Date </label>
+        <input type="date" name="date" id="date" placeholder="Date" value="{{date}}" class="form-control" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="time">Time </label>
+        <select name="time" id="time" class="form-control" required>
+          <option>Choose...</option>
+          <option value="morning">Morning (8am to 12pm)</option>
+          <option value="afternoon">Afternoon (1pm to 5pm)</option>
+          <option value="evening">Evening (6pm to 11pm)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="material">Material </label>
+        <select name="material" id="material" class="form-control" required>
+          <option>Choose...</option>
+          <option value="glass">Glass</option>
+          <option value="oil">Oil</option>
+          <option value="paper">Paper</option>
+          <option value="plastic">Plastic</option>
+          <option value="wood">Wood</option>
+          <option value="steel">Steel</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="quantity">Quantity </label>
+        <div class="d-flex">
+          <input type="number" name="quantity" id="quantity" placeholder="Quantity" value="{{quantity}}"
+            class="form-control" required>
+          <label for="kg" class="d-flex align-items-end ml-2">Kg </label>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="responsiblePerson">Responsible Person </label>
+        <input type="text" name="responsiblePerson" id="responsiblePerson" placeholder="Who will receive our team"
+          value="{{responsiblePerson}}" class="form-control" required>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center pb-5">
+      <button type="submit" class="btn btn-blue-grey">Edit Info</button>
+      <a href="/bookings/{{_id}}" class="btn btn-blue-grey">Return</a>
+    </div>
+  </form>
+</div>
