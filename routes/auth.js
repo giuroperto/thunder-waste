@@ -10,17 +10,16 @@ const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 
 router.get('/signup', (req, res, next) => {
-  // res.send(req.user);
-  //TODO passar se eh admin ou nao - current user
-  res.render('auth/signup', { message: req.flash('error') });
+  const activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin');
+  let returnPage = '';
+
+  res.render('auth/signup', { isAdmin, returnPage, message: req.flash('error') });
 });
 
-//TODO consider how to save accountType
 router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
-  
-  // res.send(req);
 
-  const { username, name, address, phone, sector, accountType, email, myPassword, cnpj, latitude, longitude } = req.body;
+  const { username, name, address, phone, sector, accountType, email, password, cnpj, latitude, longitude } = req.body;
 
   const addLocation = {
     type: 'Point',
@@ -29,7 +28,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 
     const logoUrl = req.file.url;
 
-  if (username === '' || myPassword === '' || email === '' || name === '' || cnpj === '') {
+  if (username === '' || password === '' || email === '' || name === '' || cnpj === '') {
     req.flash('error', '');
     req.flash('error', 'You must complete all required fields before continuing!');
     res.render('auth/signup', { message: req.flash('error') });
@@ -37,7 +36,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   }
 
   const salt = bcrypt.genSaltSync(bcryptSalt);
-  const hashPassword = bcrypt.hashSync(myPassword, salt);
+  const hashPassword = bcrypt.hashSync(password, salt);
 
   User.findOne({ username })
   .then(user => {

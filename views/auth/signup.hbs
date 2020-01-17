@@ -13,7 +13,7 @@
 
       <div class="form-group">
         <label for="name">Password</label>
-        <input type="password" class="form-control" name="password" id="myPassword" placeholder="*****" required>
+        <input type="password" class="form-control" name="password" id="password" placeholder="*****" required>
       </div>
 
       <br>
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      {{#if admin}}
+      {{#if isAdmin}}
       <div class="form-group">
         <label for="accountType">Account Type </label>
         <select name="accountType" id="accountType" class="form-control">
@@ -88,6 +88,7 @@
       {{/if}}
       <div class="d-flex justify-content-center pt-4 pb-4">
         <button type="submit" class="btn btn-blue-grey">Create Account</button>
+        <a href="/{{returnPage}}" class="btn btn-blue-grey">Return</a>
       </div>
     </form>
   </div>
