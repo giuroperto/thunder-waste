@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <!-- Font Awesome -->
@@ -13,17 +14,33 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a1bd910707.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script>
+
+    $(function () {
+      $('[data-toggle="popover"]').popover({
+        container: 'body'
+      })
+    })
+
+    $('.popover-dismiss').popover({
+      trigger: 'focus'
+    })
+    
+  </script>
+  <title>Thunder Waste</title>
 </head>
 
 <body>
   <!--NAVBAR-->
   <nav class="navbar navbar-expand-lg navbar-light teal accent-4">
     <a class="navbar-brand" href="/">
-      <img src="/images/logo.png" width="150" height="150" class="d-inline-block align-top"
-alt="logo"/>
+      <img src="/images/logo.png" class="d-inline-block align-top logo" alt="logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,10 +86,22 @@ alt="logo"/>
     <div class="container">
       <!-- Grid row-->
       <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="/signup">Sign Up</a>
+          </h6>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="/login">Login</a>
+          </h6>
+        </div>
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Services</a>
+            <a href="/services">Services</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -80,7 +109,7 @@ alt="logo"/>
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="/">Waste Check</a>
+            <a href="/recycling-waste-types">Waste Check</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -88,12 +117,11 @@ alt="logo"/>
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">About Us</a>
+            <a href="/about">About Us</a>
           </h6>
         </div>
         <!-- Grid column -->
 
-        <!-- Grid column -->
       </div>
       <!-- Grid row-->
       <hr class="rgba-white-light" style="margin: 0 15%;" />
@@ -101,14 +129,18 @@ alt="logo"/>
       <!-- Grid row-->
       <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
         <!-- Grid column -->
-        <div class="col-md-8 col-12 mt-5">
-          <p style="line-height: 1.7rem">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-            aspernatur aut odit aut fugit, sed quia consequuntur.
-          </p>
+        <div class="footer-colums">
+          <div>
+            <a href="/">
+              <img src="/images/logo.png" class="footer-logo" alt="logo" />
+            </a>
+          </div>
+          <div class="text-left footer-text">
+            <p class='name-size'>Thunder Waste Inc.</p>
+            <p><i class="fas fa-phone-alt footer-fa"></i>+55 (11) 3755-2574</p>
+            <p><i class="fas fa-map-marker-alt footer-fa"></i>Rua da Reciclagem, 87, Bairro da Reciclagem, São Paulo/SP,
+              Brasil</p>
+          </div>
         </div>
         <!-- Grid column -->
       </div>
@@ -122,19 +154,19 @@ alt="logo"/>
           <div class="mb-5 flex-center">
             <!-- Facebook -->
             <a class="fb-ic">
-              <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+              <i class="fab fa-facebook-f fa-2x white-text mr-4"> </i>
             </a>
             <!-- Twitter -->
             <a class="tw-ic">
-              <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+              <i class="fab fa-twitter fa-2x white-text mr-4"> </i>
             </a>
             <!--Linkedin -->
             <a class="li-ic">
-              <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+              <i class="fab fa-linkedin-in fa-2x white-text mr-4"> </i>
             </a>
             <!--Instagram-->
             <a class="ins-ic">
-              <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+              <i class="fab fa-instagram fa-2x white-text mr-4"> </i>
             </a>
           </div>
         </div>
@@ -142,22 +174,15 @@ alt="logo"/>
       </div>
       <!-- Grid row-->
     </div>
-    <!-- Footer Links -->
-    <div>
-      Rua da Reciclagem, 87, Moema, São Paulo/SP  &bull;  +55 (11) 3755-2574
-    </div>
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">
-      © 2020 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/">
-        MDBootstrap.com</a>
+      © 2020 thunderwaste.com
     </div>
     <!-- Copyright -->
   </footer>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEx5UzkNjnJ8CIngVIKKgbrzgu0kxUmJ8"></script>
-  <script src="/javascripts/script.js"></script>
+  <script src="/javascripts/maps.js"></script>
 </body>
 
 </html>

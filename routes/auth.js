@@ -12,16 +12,15 @@ const bcryptSalt = 10;
 router.get('/signup', (req, res, next) => {
   // res.send(req.user);
   //TODO passar se eh admin ou nao - current user
-  res.render('auth/signup');
+  res.render('auth/signup', { message: req.flash('error') });
 });
 
+//TODO consider how to save accountType
 router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
-  // console.log(req.body);
-  //TODO consider how to save accountType
+  
+  // res.send(req);
 
-  // res.send(req.body);
-
-  const { username, name, address, phone, sector, accountType, email, password, cnpj, latitude, longitude } = req.body;
+  const { username, name, address, phone, sector, accountType, email, myPassword, cnpj, latitude, longitude } = req.body;
 
   const addLocation = {
     type: 'Point',
@@ -30,7 +29,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 
     const logoUrl = req.file.url;
 
-  if (username === '' || password === '' || email === '' || name === '' || cnpj === '') {
+  if (username === '' || myPassword === '' || email === '' || name === '' || cnpj === '') {
     req.flash('error', '');
     req.flash('error', 'You must complete all required fields before continuing!');
     res.render('auth/signup', { message: req.flash('error') });
@@ -38,13 +37,13 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
   }
 
   const salt = bcrypt.genSaltSync(bcryptSalt);
-  const hashPassword = bcrypt.hashSync(password, salt);
+  const hashPassword = bcrypt.hashSync(myPassword, salt);
 
   User.findOne({ username })
   .then(user => {
     if (user !== null) {
       req.flash('error', '');
-      req.flash('error', `Username combination not valid. Please try again!`);
+      req.flash('error', 'Username combination not valid. Please try again!');
       res.render('auth/signup', { message: req.flash('error') });
       return;
     };
@@ -72,7 +71,7 @@ router.post('/signup', uploadCloud.single('logo'), (req, res, next) =>{
 });
 
 router.get('/login', (req, res, next) => {
-  res.render('auth/login');
+  res.render('auth/login', { message: req.flash('error') });
 });
 
 router.post('/login', passport.authenticate("local", {

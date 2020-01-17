@@ -1,25 +1,29 @@
+{{#if message}}
+<div class="all-messages">{{message}}</div>
+{{/if}}
+
 <h2>User's profile</h2>
 
 <a href="/home">User Home</a>
 <br>
-<a href="/edit-infos/{{_id}}">Edit account information</a>
+<a href="/edit-infos/{{data._id}}">Edit account information</a>
 
-<img src="{{logo}}" alt="profile-picture">
+<img src="{{data.logo}}" alt="profile-picture">
 
-{{username}}
+<div>Username: {{data.username}}</div>
 <br>
-{{name}}
+<div>Company: {{data.name}}</div>
 <br>
-{{sector}}
-<br>
-
-{{cnpj}}
+<div>Sector: {{data.sector}}</div>
 <br>
 
-{{address}}
+<div>CNPJ: {{data.cnpj}}</div>
 <br>
 
-{{phone}}
+<div>Address: {{data.address}}</div>
+<br>
+
+<div>Phone: {{data.phone}}</div>
 
 
 

@@ -1,21 +1,31 @@
-<h1>All Clients</h1>
-<div class="d-flex">
-  <div id="map" class="align-items-end"></div>
-  <div>
-    <ul>
-      {{#each clients}}
-      <li>
-        <a href="/staff/users/{{this._id}}">{{this.name}} | </a>
-        <a href="/staff/users/{{this._id}}/edit">Edit |</a>
-        {{#if admin}}
+<div class="gray-color px-5 pb-5">
+  {{#if message}}
+  <div class="all-messages">{{message}}</div>
+  {{/if}}
+  <div class="d-flex justify-content-center">
+    <h1 class="h1 font-weight-normal pt-4">All Clients</h1>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <ul>
+        {{#each clients}}
+        <li>
+          <a href="/staff/users/{{this._id}}">{{this.name}} | </a>
+          <a href="/staff/users/{{this._id}}/edit">Edit |</a>
+        </li>
+        {{/each}}
+
+        {{#if isAdmin}}
         <form action="/staff/users/{{this._id}}/delete" method="POST">
           <button type="submit">Delete</button>
         </form>
         {{/if}}
-      </li>
-      {{/each}}
-    </ul>
+
+      </ul>
+    </div>
+    <div id="map1" class="align-items-end"></div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="/staff/" class="btn btn-blue-grey">Home</a>
   </div>
 </div>
-
-<a href="/staff/" class="btn btn-secondary">Home</a>

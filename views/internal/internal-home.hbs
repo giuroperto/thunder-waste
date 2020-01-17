@@ -1,5 +1,5 @@
 {{#if message}}
-<div>{{message}}</div>
+<div class="all-messages">{{message}}</div>
 {{/if}}
 
 <div class="d-flex flex-row justify-content-between">
@@ -10,26 +10,26 @@
 <div class="d-flex flex-row">
   <div>
     <h3>My Profile</h3>
-    <a href="/staff/employees/{{activeUser._id}}" class="btn btn-secondary">See Profile</a>
-    <a href="/staff/employees/{{activeUser._id}}/edit" class="btn btn-secondary">Edit Profile</a>
+    <a href="/staff/myprofile" class="btn btn-secondary">See Profile</a>
+    <a href="/staff/myprofile/edit" class="btn btn-secondary">Edit Profile</a>
     <h3>Clients</h3>
     <a href="/staff/users" class="btn btn-secondary">See All</a>
     <h3>Employees</h3>
     <a href="/staff/employees" class="btn btn-secondary">See All</a>
     <a href="/staff/employees/add" class="btn btn-secondary">Add New Employee</a>
-    {{!-- {{#if admin}} --}}
-    {{!-- <h3>Admin</h3>
+    {{#if isAdmin}}
+    <h3>Admin</h3>
     <a href="/staff/admin" class="btn btn-secondary">See All</a>
-    <a href="/staff/admin/add" class="btn btn-secondary">Add New Admin</a> --}}
-    {{!-- {{/if}} --}}
+    <a href="/staff/admin/add" class="btn btn-secondary">Add New Admin</a>
+    {{/if}}
   </div>
   <div>
     <h3>Upcoming Bookings</h3>
     <a href="/staff/bookings">Review Bookings</a>
     {{#each companiesBooking }}
     <p class="text-dark">{{this.name}}</p>
-    {{#each bookings }}
-    <li>{{this.date}} - {{this.time}} -> {{this.quantity}} kg of {{this.material}} </li>
+    {{#each this.bookings }}
+    <li>{{this.date}} - {{this.time}}</li>
     {{/each}}
     <hr>
     {{/each}}
