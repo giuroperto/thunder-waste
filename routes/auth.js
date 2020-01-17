@@ -11,7 +11,8 @@ const bcryptSalt = 10;
 
 router.get('/signup', (req, res, next) => {
   const activeUser = req.user;
-  let isAdmin = (activeUser.accountType === 'admin');
+  let isAdmin = false;
+  // (activeUser.accountType === 'admin');
   let returnPage = '';
 
   res.render('auth/signup', { isAdmin, returnPage, message: req.flash('error') });
