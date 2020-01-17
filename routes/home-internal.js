@@ -77,9 +77,21 @@ router.get('/admin', checkAdmin, (req, res, next) => {
 
 // route to add a new 'internal' or 'admin' user
 router.get('/employees/add', checkAdmin, (req, res, next) => {
-  req.flash('error', '');
-  req.flash('error', 'You can\'t access this page!');
-  res.render('auth/signup', {
+  const activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin');
+  const returnPage = 'staff/employees';
+  res.render('auth/signup', { isAdmin,
+    returnPage,
+    message: req.flash('error')
+  });
+});
+
+router.get('/admin/add', checkAdmin, (req, res, next) => {
+  const activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin');
+  const returnPage = 'staff/admin';
+  res.render('auth/signup', { isAdmin,
+    returnPage,
     message: req.flash('error')
   });
 });
@@ -105,7 +117,6 @@ router.get('/users', checkInternalAdmin, (req, res, next) => {
 });
 
 // route to load list of bookings
-//FIXME bookings
 router.get('/bookings', checkInternalAdmin, (req, res, next) => {
   User.find()
     .populate('bookings')
@@ -119,16 +130,16 @@ router.get('/bookings', checkInternalAdmin, (req, res, next) => {
     .catch(err => console.log(err));
 });
 
-router.get('/myprofile', (req, res, next) => {
-  res.render('internal/user-details', req.user);
+router.get('/myprofile', checkInternalAdmin, (req, res, next) => {
+  let client = req.user;
+  res.render('internal/user-details', { client });
 });
 
-router.get('/myprofile/edit', (req, res, next) => {
+router.get('/myprofile/edit', checkInternalAdmin, (req, res, next) => {
   res.render('internal/user-edit', req.user);
 });
 
 // route to see details of a specific user
-// TODO show bookings?
 router.get('/users/:id', checkInternalAdmin, (req, res, next) => {
   const {
     id
@@ -136,7 +147,8 @@ router.get('/users/:id', checkInternalAdmin, (req, res, next) => {
   User.findById(id)
     .populate('bookings')
     .then(client => {
-      res.render('internal/user-details', client);
+      let hasBookings = (client.bookings.length > 0);
+      res.render('internal/user-details', { client, hasBookings });
     })
     .catch(err => console.log(err));
 });

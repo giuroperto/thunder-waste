@@ -13,13 +13,13 @@
           <a href="/staff/users/{{this._id}}">{{this.name}} | </a>
           <a href="/staff/users/{{this._id}}/edit">Edit |</a>
         </li>
-        {{/each}}
-
         {{#if isAdmin}}
-        <form action="/staff/users/{{this._id}}/delete" method="POST">
+        <form action="/staff/users/{{isAdmin._id}}/delete" method="POST">
           <button type="submit">Delete</button>
         </form>
         {{/if}}
+        {{/each}}
+
 
       </ul>
     </div>
