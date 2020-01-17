@@ -170,10 +170,12 @@
   text-align: center;
   display: flex;
 }
+
 .bee {
   width: 15vw;
   height: 12vw;
 }
+
 .bg-pages {
   background-color: #E8E7E3;
 }
@@ -201,6 +203,7 @@
 .service-boxes:hover {
   box-shadow: 0vw 0vw 4vw  black;
 }
+
 .lead {
   color: #999;
   font-size: 1em;
@@ -285,14 +288,6 @@
 
 .success-message {
   background-color: teal;
-}
-
-
-.strength_meter{
-	height:23px;
-  /* width: 154px; */
-	background:silver;
-	
 }
 
 .all-messages {
