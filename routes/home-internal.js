@@ -34,6 +34,8 @@ router.get(('/'), checkInternalAdmin, (req, res, next) => {
 
 // route to load list of employees
 router.get('/employees', checkInternalAdmin, (req, res, next) => {
+  const activeUser = req.user;
+  let isInternal = (activeUser.accountType === 'internal');
   User.find({
       accountType: 'internal'
     })
@@ -45,6 +47,7 @@ router.get('/employees', checkInternalAdmin, (req, res, next) => {
       // }
       res.render('internal/internal-all', {
         allOtherEmployees,
+        isInternal,
         message: req.flash('error')
       });
     })
@@ -52,6 +55,7 @@ router.get('/employees', checkInternalAdmin, (req, res, next) => {
 });
 
 router.get('/admin', checkAdmin, (req, res, next) => {
+  const activeUser = req.user;
   let isAdmin = (activeUser.accountType === 'admin');
   User.find({
     accountType: 'admin'
@@ -63,7 +67,8 @@ router.get('/admin', checkAdmin, (req, res, next) => {
     //   req.flash('error', 'There are no employees in our database :/');
     // }
     res.render('internal/internal-all', {
-      allOtherEmployees,
+      allOtherAdmins,
+      isAdmin,
       message: req.flash('error')
     });
   })
