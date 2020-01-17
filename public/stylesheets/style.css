@@ -448,3 +448,40 @@
     transform: translate3d(5px, 0, 0);
   }
 }
+
+
+
+/* LOGIN */
+
+/* USER PROFILE */
+
+.profile-box {
+  border: solid lightslategray 1px;
+  border-radius: 7px;
+  background-color: rgba(44, 191, 165, 0.1);
+
+}
+
+.profile-box:hover {
+  box-shadow: 0vw 0vw 4vw lightslategray;
+}
+
+.profile-box h2 {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 25px;
+}
+
+.profile-logo {
+  border-radius: 100%;
+  width: 145px;
+  height: 145px;
+  border: solid lightslategray 2px;
+  transition: transform .2s;
+
+}
+
+
+.profile-logo:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
