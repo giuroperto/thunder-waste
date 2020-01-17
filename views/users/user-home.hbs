@@ -1,22 +1,39 @@
-{{#if message}}
-<div class="all-messages">{{message}}</div>
-{{/if}}
+<div class="gray-color">
+  {{#if message}}
+  <div class="all-messages">{{message}}</div>
+  {{/if}}
 
-<h3>Welcome back, {{data.name}}!</h3>
+  <div class="pt-5 pl-3">
+    <h3>Welcome back, {{data.name}}!</h3>
+  </div>
 
-<h4>Your last bookings</h4>
+  <div class="pl-3 pt-5 pb-4">
+    <h4>Your last bookings</h4>
+  </div>
 
-{{#each data.bookings}}
-<div>
-  <a href="/bookings/{{this._id}}">
-    {{this.date}} - {{this.time}}
-  </a>
-  -> {{this.quantity}} kg of {{this.material}} | {{this.responsiblePerson}}
+  {{#each data.bookings}}
+  <div class="px-5 d-flex flex-row">
+    <div class="pr-2">
+      {{this.responsiblePerson}} booked on
+    </div>
+    <div class="d-flex">
+      <div class="pr-2">
+        <a href="/bookings/{{this._id}}">
+          {{this.date}} - {{this.time}}
+        </a>
+      </div>
+      <div>
+        -> {{this.quantity}} kg of {{this.material}} |
+      </div>
+      <a href="/bookings/{{this._id}}/edit" class="px-2">Edit |</a>
+      <form action="/bookings/{{this._id}}/delete" method="POST" class="px-2"><button type="submit">Delete</button></form>
+      <hr>
+    </div>
+  </div class="px-5 d-flex flex-row">
+  {{/each}}
+
+  <div class="d-flex flex-row justify-content-center pb-5 pt-3">
+    <a href="/bookings" class="btn btn-blue-grey">Schedule waste remove</a>
+    <a href="/profile" class="btn btn-blue-grey">My account</a>
+  </div>
 </div>
-<hr>
-{{/each}}
-
-<br><br>
-<a href="/profile" class="btn btn-blue-grey">My account</a>
-<br><br>
-<a href="/bookings" class="btn btn-blue-grey">Schedule waste remove</a>

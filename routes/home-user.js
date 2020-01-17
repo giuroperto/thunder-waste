@@ -108,7 +108,19 @@ router.get('/bookings/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) 
   .catch(err => console.log(err))
 });
 
-router.post('bookings/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.post('/bookings/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const { id } = req.params;
+  const { date, time, material, quantity, responsiblePerson } = req.body;
+  Booking.findByIdAndUpdate(id, {date, time, material, quantity, responsiblePerson })
+  .then(_ => {
+    req.flash('error', '');
+    req.flash('error', 'Booking successfully updated');
+    res.redirect('/profile');
+  })
+  .catch(err => console.log(err))
+});
+
+router.post('/bookings/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const { id } = req.params;
   Booking.findByIdAndRemove(id)
   .then(_ => {
