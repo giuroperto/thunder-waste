@@ -10,11 +10,11 @@ const addressInput = document.getElementById('address');
 const bounds = new google.maps.LatLngBounds();
 
 const clientsAPI = axios.create({
-  baseURL: 'http://localhost:3000/api/clients',
+  baseURL: '/api/clients',
 });
 
 const cooperativesAPI = axios.create({
-  baseURL: 'http://localhost:3000/api/cooperatives',
+  baseURL: '/api/cooperatives',
 });
 
 window.onload = () => {
