@@ -60,21 +60,21 @@ router.get('/admin', checkAdmin, (req, res, next) => {
   const activeUser = req.user;
   let isAdmin = (activeUser.accountType === 'admin');
   User.find({
-    accountType: 'admin'
-  })
-  .then(admins => {
-    const allOtherAdmins = admins.filter(admin => admin._id !== req.user._id);
-    // if (allOtherEmployees.length == 0) {
-    //   req.flash('error', '');
-    //   req.flash('error', 'There are no employees in our database :/');
-    // }
-    res.render('internal/internal-all', {
-      allOtherAdmins,
-      isAdmin,
-      message: req.flash('error')
-    });
-  })
-  .catch(err => console.log(err));
+      accountType: 'admin'
+    })
+    .then(admins => {
+      const allOtherAdmins = admins.filter(admin => admin._id !== req.user._id);
+      // if (allOtherEmployees.length == 0) {
+      //   req.flash('error', '');
+      //   req.flash('error', 'There are no employees in our database :/');
+      // }
+      res.render('internal/internal-all', {
+        allOtherAdmins,
+        isAdmin,
+        message: req.flash('error')
+      });
+    })
+    .catch(err => console.log(err));
 })
 
 // route to add a new 'internal' or 'admin' user
@@ -82,7 +82,8 @@ router.get('/employees/add', checkAdmin, (req, res, next) => {
   const activeUser = req.user;
   let isAdmin = (activeUser.accountType === 'admin');
   const returnPage = 'staff/employees';
-  res.render('auth/signup', { isAdmin,
+  res.render('auth/signup', {
+    isAdmin,
     returnPage,
     message: req.flash('error')
   });
@@ -92,7 +93,8 @@ router.get('/admin/add', checkAdmin, (req, res, next) => {
   const activeUser = req.user;
   let isAdmin = (activeUser.accountType === 'admin');
   const returnPage = 'staff/admin';
-  res.render('auth/signup', { isAdmin,
+  res.render('auth/signup', {
+    isAdmin,
     returnPage,
     message: req.flash('error')
   });
@@ -134,7 +136,9 @@ router.get('/bookings', checkInternalAdmin, (req, res, next) => {
 
 router.get('/myprofile', checkInternalAdmin, (req, res, next) => {
   let client = req.user;
-  res.render('internal/user-details', { client });
+  res.render('internal/user-details', {
+    client
+  });
 });
 
 router.get('/myprofile/edit', checkInternalAdmin, (req, res, next) => {
@@ -150,20 +154,30 @@ router.get('/users/:id', checkInternalAdmin, (req, res, next) => {
     .populate('bookings')
     .then(client => {
       let hasBookings = (client.bookings.length > 0);
-      res.render('internal/user-details', { client, hasBookings });
+      res.render('internal/user-details', {
+        client,
+        hasBookings
+      });
     })
     .catch(err => console.log(err));
 });
 
 router.get('/users/:id/edit', checkInternalAdmin, (req, res, next) => {
   let activeUser = req.user;
+  let isAdmin = (activeUser.accountType === 'admin')
   const {
     id
   } = req.params;
-  if (activeUser._id !== id){
-    req.flash('error', '');
-    req.flash('error', 'You don\'t have permission to perform this task');
-    res.render('auth/login', { message: req.flash('error') });
+
+  if (!isAdmin) {
+    if (activeUser._id !== id) {
+      req.flash('error', '');
+      req.flash('error', 'You don\'t have permission to perform this task');
+      res.render('auth/login', {
+        message: req.flash('error')
+      });
+      return;
+    }
   }
   User.findById(id)
     .then(client => {
@@ -204,10 +218,12 @@ router.get('/employees/:id/edit', checkAdmin, (req, res, next) => {
   const {
     id
   } = req.params;
-  if (activeUser._id !== id){
+  if (activeUser._id !== id) {
     req.flash('error', '');
     req.flash('error', 'You don\'t have permission to perform this task');
-    res.render('auth/login', { message: req.flash('error') });
+    res.render('auth/login', {
+      message: req.flash('error')
+    });
   }
   User.findById(id)
     .then(employee => {

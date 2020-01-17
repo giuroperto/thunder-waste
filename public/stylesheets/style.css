@@ -448,3 +448,77 @@
     transform: translate3d(5px, 0, 0);
   }
 }
+
+
+
+/* LOGIN */
+
+.bg-login {
+  background-image: url(../images/flower.jpeg);
+  background-size: cover;
+}
+
+/* USER HOME */
+
+.user-h3 {
+  font-weight: 600;
+  color: lightslategray;
+}
+
+.user-h4 {
+  font-weight: 400;
+  color: lightseagreen;
+  text-decoration: underline;
+}
+
+.user-logo {
+  border-radius: 100%;
+  width: 145px;
+  height: 145px;
+  border: solid lightslategray 2px;
+
+}
+
+.editbtn {
+  color: white;
+}
+
+
+
+/* USER PROFILE */
+
+.bg-profile {
+  background-image: url(../images/beach.jpeg);
+  background-size: cover;
+}
+
+.profile-box {
+  border: solid lightslategray 1px;
+  border-radius: 7px;
+  background-color: rgba(211, 211, 211, 0.9);
+
+}
+
+.profile-box:hover {
+  box-shadow: 0vw 0vw 4vw lightslategray;
+}
+
+.profile-box h2 {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 25px;
+}
+
+.profile-logo {
+  border-radius: 100%;
+  width: 145px;
+  height: 145px;
+  border: solid lightslategray 2px;
+  transition: transform .2s;
+
+}
+
+
+.profile-logo:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
