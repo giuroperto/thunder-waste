@@ -1,0 +1,440 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.img {
+  width: 100%;
+}
+
+.navbar {
+  height: 12vh;
+}
+
+.logo {
+  width: 10vw;
+  /* height: 10vw; */
+}
+
+.background {
+  margin-top: -4vw;
+  background-size: cover;
+  background-image: url(../images/hand_with_plant.jpg);
+  position: 00;
+  height: 60vw;
+}
+
+.slogan {
+  position: absolute;
+  left: 58vw;
+  top: 20vw;
+  /* border: solid; */
+}
+
+.slogan h1 {
+  font-family: "Monoton", cursive;
+  padding-bottom: 3vw;
+  font-size: 5vw;
+}
+
+.learn-more {
+  border: solid lightseagreen;
+  box-shadow: 0vw 0vw 0.5vw lightseagreen;
+}
+
+.how-it-works {
+  margin: 5vw;
+  font-size: 4vw;
+  font-weight: 500;
+  color: #424242;
+}
+
+.slow-speed {
+  -webkit-animation: fa-spin 6s infinite linear;
+  animation: fa-spin 6s infinite linear;
+}
+
+.circle-icon {
+  display: inline-block;
+  border-style: solid;
+  border-radius: 100%;
+  box-shadow: 0vw 0vw 0.5vw lightseagreen;
+  padding: 0.5em 0.5em;
+  color: lightseagreen;
+}
+
+.service-slogan {
+  margin: 2vw;
+}
+
+.service-text {
+  margin-bottom: 5vw;
+}
+
+.section3 {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-image: url(../images/plant.jpeg);
+  position: 00;
+  height: 60vw;
+  color: white;
+}
+
+.section3-text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 7vw;
+}
+
+.section3-h2 {
+  font-weight: 800;
+  font-size: 3vw;
+  height: 5vw;
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: skew(9deg, 0deg);
+  font-style: italic;
+  width: 75vw;
+  color: black;
+  margin-left: 10vw;
+}
+
+.check-types {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+}
+
+.waste-type-btn {
+  color: black;
+  background-color: lightseagreen;
+  font-size: 1.3vw;
+  border-radius: 2%;
+  box-shadow: 0vw 0vw 0.5vw black;
+}
+
+.main-map-sign-div {
+  display: flex;
+  padding-top: 9vw;
+  justify-content: space-around;
+}
+
+.main-map-sign-div h3 {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.main-map-sign-div p {
+  font-weight: 600;
+  font-size: 1.5vw;
+}
+
+.coop-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px;
+  padding: 12px 12px 0 12px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.recycle-centre-sign {
+  width: 17vw;
+  height: 17vw;
+}
+
+.bee-and-sign {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#circle {
+  height: 5vw;
+  width: 5vw;
+  background-color: goldenrod;
+  border: 0.1vw solid;
+  color: black;
+  font-weight: 600;
+  font-size: 6vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+}
+
+.bee {
+  width: 15vw;
+  height: 12vw;
+}
+
+.bg-pages {
+  background-color: #e8e7e3;
+}
+
+.ourservices {
+  padding-top: 4vw;
+  font-size: 4vw;
+  color: #424242;
+}
+
+.div-bar-service {
+  height: 3px;
+  width: 250px;
+  background: #13a599;
+  /* margin-bottom: 2vh; */
+  margin: -60px auto 60px;
+}
+
+.service-boxes {
+  border-radius: 15px;
+  margin-left: 5vw;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border:  */
+}
+
+.service-boxes:hover {
+  box-shadow: 0vw 0vw 4vw black;
+}
+
+.lead {
+  color: #999;
+  font-size: 1em;
+}
+
+.service-img {
+  height: 20vw;
+  margin-bottom: 0.5vw;
+  border: solid lightseagreen;
+  border-radius: 5%;
+}
+
+.dots p {
+  margin: 1vw;
+}
+
+.icon {
+  margin: 1vw;
+  font-size: 2.5vw;
+}
+
+.type-pages-header {
+  background-size: cover;
+  background-image: url(../images/map-2.png);
+  position: 00;
+  height: 60vw;
+}
+
+.footer-colums {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  margin-top: -1vw;
+}
+
+.footer-text {
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.footer-logo {
+  width: 20vw;
+  /* height: 20vw; */
+  margin-right: 10vw;
+}
+
+.footer-fa {
+  margin-right: 2vw;
+}
+
+.name-size {
+  font-size: 2vw;
+}
+
+/* .footer-size{
+  height: 10vw;
+} */
+
+#map1 {
+  height: 400px;
+  width: 60%;
+}
+
+#map2 {
+  height: 25vw;
+  width: 50%;
+  border: solid forestgreen;
+  border-radius: 2%;
+}
+
+.redirect-bg {
+  background-image: url(../images/trunk-redirect.jpg);
+  background-size: cover;
+  height: 60vh;
+  color: white;
+}
+
+.error-message {
+  background-color: tomato;
+}
+
+.success-message {
+  background-color: teal;
+}
+
+.all-messages {
+  background-color: goldenrod;
+  padding: 10px;
+}
+
+/* ABOUT US PAGE */
+
+.title-about {
+  font-size: 2rem;
+  padding: 4rem 20rem;
+  color: grey;
+}
+
+.green-color {
+  color: lightseagreen;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.about-us-sections {
+  display: flex;
+  margin-top: 3vw;
+}
+
+.about-img-h2 {
+  display: flex;
+  padding-left: 5vw;
+}
+
+.about-img-h2 img {
+  width: 20vw;
+  height: 15vw;
+  border: solid #13a599 1px;
+  border-radius: 4px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.about-text {
+  /* padding-top: 1vw; */
+  padding-left: 35vw;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.div-bar {
+  height: 3px;
+  width: 135px;
+  background: #13a599;
+  margin-bottom: 2vh;
+}
+
+.background-about {
+  background-image: url(../images/header-bee.jpg);
+  background-size: cover;
+  height: 22vw;
+}
+
+.background-about h2 {
+  position: relative;
+  padding-top: 15vh;
+  color: darkslategray;
+  font-weight: 600;
+  font-size: 3.5vw;
+  padding-right: 35rem;
+}
+
+/*  WASTE TYPE PAGE */
+
+.background-waste {
+  background-image: url(../images/header-2.jpeg);
+  background-size: cover;
+  height: 22vw;
+}
+
+.title-waste {
+  font-size: 2rem;
+  padding: 3rem 12rem 0.5rem 12rem;
+  color: grey;
+  /* text-justify: inter-character; */
+}
+
+.title-waste2 {
+  font-size: 1.5rem;
+  padding: 3rem 12rem 3rem 12rem;
+  color: grey;
+  font-weight: 600;
+}
+
+.background-waste h2 {
+  position: relative;
+  padding-top: 15vh;
+  color: darkslategray;
+  font-weight: 600;
+  font-size: 3.5vw;
+  padding-right: 35rem;
+}
+
+.waste-type-grid {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.waste-type-grid div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waste-type-grid img {
+  width: 12vw;
+}
+
+.img-hover-zoom--colorize img {
+  transition: transform 0.1s, filter 1.5s ease-in-out;
+  filter: grayscale(100%);
+}
+
+.img-hover-zoom--colorize:hover img {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+.truck {
+  animation: fly 0.5s ease-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate3d(70px, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(70px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
