@@ -1,18 +1,17 @@
-<img src="{{logo}}" alt="Client's logo">
-<h1>{{name}}</h1>
-<a href="/staff/users/{{_id}}/edit">Edit Account</a>
-<div>CNPJ: {{cnpj}}</div>
-<div>Sector: {{sector}}</div>
-<div>Address: {{address}}</div>
-<div>CNPJ: {{cnpj}}</div>
-<div>Phone: {{phone}}</div>
-<div>Username: {{username}}</div>
-<div>Email: {{email}}</div>
-{{#if bookings}}
-{{#each bookings}}
-<div>{{date}}</div>
-<div>{{material}}</div>
-<div>{{quantity}}</div>
+<img src="{{client.logo}}" alt="Client's logo">
+<h1>{{client.name}}</h1>
+<a href="/staff/users/{{client._id}}/edit">Edit Account</a>
+<div>CNPJ: {{client.cnpj}}</div>
+<div>Sector: {{client.sector}}</div>
+<div>Address: {{client.address}}</div>
+<div>CNPJ: {{client.cnpj}}</div>
+<div>Phone: {{client.phone}}</div>
+<div>Username: {{client.username}}</div>
+<div>Email: {{client.email}}</div>
+{{#if hasBookings}}
+<div>Bookings:</div>
+{{#each client.bookings}}
+<div>{{this.date}} - {{this.time}} -> {{this.quantity}} kg of {{this.material}} </div>
 {{/each}}
 {{/if}}
 
