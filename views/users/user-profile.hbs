@@ -1,24 +1,25 @@
-<div class="gray-color">
+<div class="gray-color bg-profile">
   <div class="pb-4">
     {{#if message}}
     <div class="all-messages">{{message}}</div>
     {{/if}}
   </div>
 
-  <div class="d-flex flex-column align-items-center pt-2 px-5">
+  <div class="d-flex flex-column align-items-center pt-2 px-5 pb-3">
     <div class="d-flex flex-row justify-content-around profile-box mb-3">
       <div class="">
         <div class="d-flex flex-column justify-content-center align-items-center pt-5 pb-3">
           <div class='d-flex flex-column align-items-center'>
-            <img src="{{data.logo}}" alt="profile-picture" class="profile-logo mb-4 zoom">
+            <img src="{{data.logo}}" alt="profile-picture" class="profile-logo mb-4">
             <h2 class='h2-profile mb-3'>{{data.name}}'s profile</h2>
           </div>
           <div class="d-flex flex-column pl-2">
             <div> <b>Username:</b> {{data.username}}</div>
+            <div><b>Email:</b> {{data.email}}</div>
             <div><b>Company:</b> {{data.name}}</div>
             <div><b>Sector:</b>: {{data.sector}}</div>
             <div><b>CNPJ:</b>{{data.cnpj}}</div>
-            <div><b>Address:</b>s: {{data.address}}</div>
+            <div><b>Address:</b> {{data.address}}</div>
             <div><b>Phone:</b> {{data.phone}}</div>
           </div>
         </div>
