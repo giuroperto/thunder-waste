@@ -13,7 +13,7 @@
 1. License
 
 ### 1. Context
-As both of the creators are environmental enthusiasts who are concerned about the destination of all the waste produced and the reality of recycling, they've decided to come up with an alternative to companies that want to make a difference and make sure that their 
+As both of the app's creators are environmental enthusiasts who are concerned about the destination of all the waste produced and the reality of recycling, we've decided to come up with an alternative to companies that want to make a difference and want to make sure that their waste is properly reinserted in the production chain.
 
 #### i. Recycling in Brazil
 The brazilian reality related to recycling is quite worrisome. 
