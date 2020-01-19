@@ -27,7 +27,7 @@ The brazilian reality related to recycling is quite worrisome.
 
 
 ### 4. Next steps
-As a further improvement we would like to expand our business to also attend individuals who don't know what to do with all the recycling materials they produce and want it to be reinserted in the production chain. For that, we would provide a way to connect to waste-pickers to handle the logistics.
+As a further improvement we would like to expand our business to also attend individuals who don't know what to do with all the recycling materials they produce and want it to be reinserted in the production chain. For that, we would provide a way to connect to waste-pickers who would handle the logistics.
 
 ### 5. Contributing
 
